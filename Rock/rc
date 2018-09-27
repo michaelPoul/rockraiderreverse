@@ -2952,7 +2952,7 @@ f fcn.004761c0 25 0x004761c0
 f fcn.00407300 52 0x00407300 
 f fcn.0047dbf0 186 0x0047dbf0 
 f fcn.0048e060 39 0x0048e060 
-f fcn.0047db90 34 0x0047db90 
+f makeColorMaybe 34 0x0047db90 
 f fcn.0047e190 305 0x0047e190 
 f fcn.0047d720 31 0x0047d720 
 f fcn.00425d80 14 0x00425d80 
@@ -3005,7 +3005,7 @@ f fcn.00438d30 84 0x00438d30
 f fcn.00438cd0 84 0x00438cd0 
 f fcn.00438d90 84 0x00438d90 
 f fcn.0047a540 11 0x0047a540 
-f fcn.004800a0 21 0x004800a0 
+f readFileToBufMaybe 21 0x004800a0 
 f sub.KERNEL32.dll_HeapAlloc_c80 410 0x0048dc80 
 f fcn.00491cc0 196 0x00491cc0 
 f fcn.00491d90 32 0x00491d90 
@@ -3394,19 +3394,19 @@ f fcn.00455300 51 0x00455300
 f fcn.004374a0 33 0x004374a0 
 f fcn.00409d40 10 0x00409d40 
 f fcn.0044adc0 29 0x0044adc0 
-f fcn.00485a20 1015 0x00485a20 
+f setupKeyToStrMap 1015 0x00485a20 
 f fcn.00476d50 37 0x00476d50 
-f fcn.00436c20 1023 0x00436c20 
+f setupEnumToStrMaps 1023 0x00436c20 
 f fcn.0047d410 27 0x0047d410 
 f fcn.0045d8b0 468 0x0045d8b0 
 f fcn.00401c30 6 0x00401c30 
 f fcn.00401c40 6 0x00401c40 
-f fcn.0045a030 521 0x0045a030 
-f fcn.00401cf0 781 0x00401cf0 
-f fcn.00451cd0 651 0x00451cd0 
+f setupPanelData 521 0x0045a030 
+f setupAIData 781 0x00401cf0 
+f setupMessageStrs 651 0x00451cd0 
 f fcn.00465380 23 0x00465380 
-f fcn.0045c830 561 0x0045c830 
-f fcn.004070b0 391 0x004070b0 
+f setupPointerStrs 561 0x0045c830 
+f setupBubbleStrs 391 0x004070b0 
 f fcn.00419230 422 0x00419230 
 f fcn.0041a300 854 0x0041a300 
 f fcn.00472710 228 0x00472710 
@@ -7758,10 +7758,9 @@ f sub.USER32.dll_ShowCursor_610 701 0x0047c610
 f sub.USER32.dll_GetDlgItem_630 321 0x0049d630 
 f sub.USER32.dll_GetDlgItem_780 230 0x0049d780 
 f fcn.0049d950 113 0x0049d950 
-fs strings
+fs globals
 f bigList 1 0x00544a24 
 f bigListEnd 1 0x005488a4 
-fs globals
 f windowHandle 4 0x00505800 
 f windowHandle_2 4 0x0076ac80 
 f optionBits 4 0x00505f84 
@@ -7833,14 +7832,27 @@ fs functions
 f fcn.0043c810 9864 0x0043c810 
 fs globals
 f SurfaceTypeToStr 72 0x00556290 
-f setupDirectDraw 158 0x0047c2e0 
 f gameExeStr 4 0x005560c4 
 fs functions
-f setupDirectDraw 158 0x0047c2e0 
 f DDEnumCallback 235 0x0047c1f0 
 fs globals
 f DirectDrawArrNextIdx 4 0x0076acb0 
 f DirectDrawDisplayArr 1 0x0076ac9c 
+f KeyToStrMap 1024 0x005765e0 
+f ActivityToStrMap 304 0x004decc4 
+f AbilityTypeToStrMap 24 0x004ead60 
+f setupDirectDraw 158 0x0047c2e0 
+fs strings
+f str.LegoObject__ToolType__FreezerGun 31 0x004a48b4 
+fs globals
+f ToolTypeToStrMap 32 0x005561fc 
+f const_255f 4 0x004a8f28 
+f ptrToStr.Panel_Radar 4 0x005000e0 
+fs functions
+f fcn.0043f130 28 0x0043f130 
+f setupDirectDraw 158 0x0047c2e0 
+fs globals
+f someFuncPtr 4 0x0076cd80 
 # eval
 "e anal.a2f = false"
 "e anal.afterjmp = true"
@@ -8298,7 +8310,7 @@ f DirectDrawDisplayArr 1 0x0076ac9c
 "e search.flags = true"
 "e search.from = 0xffffffffffffffff"
 "e search.in = io.maps"
-"e search.kwidx = 3"
+"e search.kwidx = 8"
 "e search.maxhits = 0"
 "e search.overlap = false"
 "e search.prefix = hit"
@@ -8344,6 +8356,7 @@ om 7 0x49de00 0x200 0x0 r-x mmap..text
 # sections
 # meta
 CCu base64:WzAwXSAtci14IHNlY3Rpb24gc2l6ZSA2NDI1NjAgbmFtZWQgLnRleHQ= @ 0x00401000
+CCu base64:ZWRpID0gMHg0YjMyZTg= @ 0x00401f52
 CCu base64:c3dpdGNoIHRhYmxlICg3IGNhc2VzKSBhdCAweDQwMjkxYw== @ 0x004028cb
 CCu base64:c3dpdGNoIHRhYmxlICg1IGNhc2VzKSBhdCAweDQwNjMwNA== @ 0x00405fa3
 CCu base64:c3dpdGNoIHRhYmxlICg2IGNhc2VzKSBhdCAweDQwNjMyYw== @ 0x00406098
@@ -8396,6 +8409,7 @@ CCu base64:YXJnMSA9IGdhbWUgbmFtZSBzdHJpbmc= @ 0x0041fa32
 CCu base64:MC4yZg== @ 0x0041fb59
 CCu base64:MC43Zg== @ 0x0041fb63
 CCu base64:MS4wZg== @ 0x0041fb6d
+CCu base64:ZGVhZCBsb29wIChtYXliZSBpZmRlZmZlZCBvdXQp @ 0x0041fc34
 CCu base64:MS4wZg== @ 0x0041fc45
 CCu base64:c2V0IGFzIHRoZSBnYW1lRW5kIGZ1bmN0aW9uIGlmIHByb2dyYW1tZXIgYml0cyA9PSAweGE= @ 0x00424d00
 CCu base64:c3dpdGNoIHRhYmxlICg2IGNhc2VzKSBhdCAweDQyODhiYw== @ 0x00428821
@@ -8477,6 +8491,8 @@ CCu base64:c3dpdGNoIHRhYmxlICgxNyBjYXNlcykgYXQgMHg0NWI2ZjA= @ 0x0045b62d
 CCu base64:c3dpdGNoIHRhYmxlICg1IGNhc2VzKSBhdCAweDQ1YzgwNA== @ 0x0045c6cf
 CCu base64:c3dpdGNoIHRhYmxlICg5IGNhc2VzKSBhdCAweDQ1ZDYxMA== @ 0x0045d561
 CCu base64:SFdORCBoV25k @ 0x0045d6c1
+CCu base64:MC4wMDMyMmYsIHNlZW1zIHRvIGJlIGdsb2JhbCBzY3JhdGNoIHNwYWNlLCBtYXliZSBzdGF0aWMgdmFy @ 0x0045d8c1
+CCu base64:KnAgKj0gdmFyMHg0OWU2NWM= @ 0x0045d8cb
 CCu base64:SGVhcEhhbmRsZSBoSGVhcA== @ 0x0045daf4
 CCu base64:c3dpdGNoIHRhYmxlICg1IGNhc2VzKSBhdCAweDQ1ZWZjNA== @ 0x0045ea38
 CCu base64:c3dpdGNoIHRhYmxlICgxMSBjYXNlcykgYXQgMHg0NWVmZDg= @ 0x0045eb21
@@ -8639,6 +8655,11 @@ CCu base64:SGVhcEhhbmRsZSBoSGVhcA== @ 0x0047921f
 CCu base64:SGVhcEFsbG9jYXRpb25Db250cm9sIGR3RmxhZ3M= @ 0x00479240
 CCu base64:SGVhcEhhbmRsZSBoSGVhcA== @ 0x00479247
 CCu base64:SGVhcEhhbmRsZSBoSGVhcA== @ 0x00479476
+CCu base64:YXJnMTogc3RyIHdpdGggcGF0aCB0byBmaWxlICh0byBsb2FkPyk= @ 0x00479ee3
+CCu base64:bm90IGFyZywganVzdCBzYXZpbmc= @ 0x00479eec
+CCu base64:MC9udWxs @ 0x00479eed
+CCu base64:MC9udWxs @ 0x00479eee
+CCu base64:Y2hhciogdG8gZmlsZSBwYXRo @ 0x00479eef
 CCu base64:bXVzdCBiZSBudWxs @ 0x0047a664
 CCu base64:MCBmb3IgZGVmYXVsdCBkZXZpY2U= @ 0x0047a66a
 CCu base64:YXJnMTogd2luZG93IGhhbmRsZQ== @ 0x0047a67d
@@ -8714,6 +8735,9 @@ CCu base64:aW50IG5SaWdodFJlY3Q= @ 0x0047c80f
 CCu base64:aW50IG5Ub3BSZWN0 @ 0x0047c822
 CCu base64:aW50IG5MZWZ0UmVjdA== @ 0x0047c823
 CCu base64:SGVhcEhhbmRsZSBoSGVhcA== @ 0x0047cbf0
+CCu base64:YXJnMTogY2hhciogdG8gZmlsZSBwYXRoLCBhcmcyOiB1c3VhbGx5IDAsIGFyZzM6IHVzdWFsbHkgMA== @ 0x0047d9d0
+CCu base64:YXJnMTogY2hhciogdG8gZmlsZSBwYXRo @ 0x0047da0c
+CCu base64:YWxzbyBwb3NzaWJseSBtYWtlSGV4KGJ5dGUxLCBieXRlMiwgYnl0ZTMp @ 0x0047db90
 CCu base64:bnVsbA== @ 0x0047edae
 CCu base64:b3V0cHV0IHB0ciBmb3IgRElOUFVUIGludGVyZmFjZQ== @ 0x0047edb9
 CCu base64:ZGlucHV0IHZlcnNpb24= @ 0x0047edbe
@@ -8780,6 +8804,7 @@ CCu base64:c3RyIHdpdGggcGF0aCB0byBkYXRhIGRpcg== @ 0x0047f590
 CCu base64:aWYgKHN0cmxlbihwYXRoKSAtIDEgPiAxMDI0IHx8IHN0cmxlbihwYXRoKSAtIDEgPT0gMCkgZmFpbCgp @ 0x0047f5a6
 CCu base64:YXJnMTogd2FkIGZpbGUgbmFtZQ== @ 0x0047f647
 CCu base64:cmV0dXJucyB0aGUgaWR4IGluIGdsb2JhbCB3YWQgYXJyIHVzZWQsIC0xIG9uIGVycg== @ 0x0047f657
+CCu base64:YXJnMzogYWx3YXlzIDE= @ 0x004800c0
 CCu base64:SGVhcEhhbmRsZSBoSGVhcA== @ 0x00481780
 CCu base64:SGVhcEhhbmRsZSBoSGVhcA== @ 0x0048178d
 CCu base64:SGVhcEhhbmRsZSBoSGVhcA== @ 0x0048179a
@@ -31466,7 +31491,6 @@ axc 0x43f0e0 0x43f0ac
 axc 0x43f0be 0x43f0da
 axc 0x43f127 0x43f11f
 axC 0x473db0 0x43f135
-axc 0x43f14b 0x43f13f
 axd 0x556514 0x43f150
 axc 0x43f187 0x43f158
 axd 0x556474 0x43f15e
@@ -55571,8 +55595,8 @@ afb+ 0x00401cb0 0x00401ce0 15 0xffffffffffffffff 0xffffffffffffffff n
 afvs 8 arg_8h int @ 0x401cb0
 afvs 20 arg_14h int @ 0x401cb0
 afS 20 @ 0x401cb0
-"f fcn.00401cf0 781 0x00401cf0"
-"af+ 0x00401cf0 fcn.00401cf0 f n"
+"f setupAIData 781 0x00401cf0"
+"af+ 0x00401cf0 setupAIData f n"
 afc amd64 @ 0x00401cf0
 afb+ 0x00401cf0 0x00401cf0 781 0xffffffffffffffff 0xffffffffffffffff n
 afS 4 @ 0x401cf0
@@ -57356,8 +57380,8 @@ afc amd64 @ 0x00407090
 afb+ 0x00407090 0x00407090 17 0xffffffffffffffff 0xffffffffffffffff n
 afvs 4 arg_4h int @ 0x407090
 afS 4 @ 0x407090
-"f fcn.004070b0 391 0x004070b0"
-"af+ 0x004070b0 fcn.004070b0 f n"
+"f setupBubbleStrs 391 0x004070b0"
+"af+ 0x004070b0 setupBubbleStrs f n"
 afc amd64 @ 0x004070b0
 afb+ 0x004070b0 0x004070b0 391 0xffffffffffffffff 0xffffffffffffffff n
 afS 0 @ 0x4070b0
@@ -71084,8 +71108,8 @@ afb+ 0x00436b87 0x00436bd6 60 0xffffffffffffffff 0xffffffffffffffff n
 afvb 8 arg_8h int @ 0x436b87
 afvb 12 arg_ch int @ 0x436b87
 afS 16 @ 0x436b87
-"f fcn.00436c20 1023 0x00436c20"
-"af+ 0x00436c20 fcn.00436c20 f n"
+"f setupEnumToStrMaps 1023 0x00436c20"
+"af+ 0x00436c20 setupEnumToStrMaps f n"
 afc amd64 @ 0x00436c20
 afb+ 0x00436c20 0x00436c20 1023 0xffffffffffffffff 0xffffffffffffffff n
 afS 4 @ 0x436c20
@@ -73411,6 +73435,15 @@ afb+ 0x0043f100 0x0043f121 6 0x0043f127 0xffffffffffffffff n
 afb+ 0x0043f100 0x0043f127 1 0xffffffffffffffff 0xffffffffffffffff n
 afvs 8 arg_8h int @ 0x43f100
 afS 0 @ 0x43f100
+"f fcn.0043f130 28 0x0043f130"
+"af+ 0x0043f130 fcn.0043f130 f n"
+afc cdecl @ 0x0043f130
+afb+ 0x0043f130 0x0043f130 17 0x0043f14b 0x0043f141 n
+afb+ 0x0043f130 0x0043f141 10 0x0043f14b 0xffffffffffffffff n
+afb+ 0x0043f130 0x0043f14b 1 0xffffffffffffffff 0xffffffffffffffff n
+afvs 4 arg_4h int @ 0x43f130
+axC 0x473db0 0x43f135
+afS 4 @ 0x43f130
 "f fcn.0043f150 58 0x0043f150"
 "af+ 0x0043f150 fcn.0043f150 f n"
 afc amd64 @ 0x0043f150
@@ -78643,8 +78676,8 @@ afb+ 0x00451c50 0x00451cab 18 0x00451cab 0x00451cbd n
 afb+ 0x00451c50 0x00451cbd 5 0xffffffffffffffff 0xffffffffffffffff n
 afvs 12 arg_ch int @ 0x451c50
 afS 16 @ 0x451c50
-"f fcn.00451cd0 651 0x00451cd0"
-"af+ 0x00451cd0 fcn.00451cd0 f n"
+"f setupMessageStrs 651 0x00451cd0"
+"af+ 0x00451cd0 setupMessageStrs f n"
 afc amd64 @ 0x00451cd0
 afb+ 0x00451cd0 0x00451cd0 651 0xffffffffffffffff 0xffffffffffffffff n
 afS 0 @ 0x451cd0
@@ -80429,8 +80462,8 @@ afb+ 0x00459fd0 0x0045a01d 4 0xffffffffffffffff 0xffffffffffffffff n
 afvs 4 local_4h int @ 0x459fd0
 afvs 12 arg_ch int @ 0x459fd0
 afS 12 @ 0x459fd0
-"f fcn.0045a030 521 0x0045a030"
-"af+ 0x0045a030 fcn.0045a030 f n"
+"f setupPanelData 521 0x0045a030"
+"af+ 0x0045a030 setupPanelData f n"
 afc amd64 @ 0x0045a030
 afb+ 0x0045a030 0x0045a030 521 0xffffffffffffffff 0xffffffffffffffff n
 afS 0 @ 0x45a030
@@ -81308,8 +81341,8 @@ afvs 4 arg_4h int @ 0x45c6b0
 afvs 8 arg_8h int @ 0x45c6b0
 afvs 12 arg_ch int @ 0x45c6b0
 afS 0 @ 0x45c6b0
-"f fcn.0045c830 561 0x0045c830"
-"af+ 0x0045c830 fcn.0045c830 f n"
+"f setupPointerStrs 561 0x0045c830"
+"af+ 0x0045c830 setupPointerStrs f n"
 afc amd64 @ 0x0045c830
 afb+ 0x0045c830 0x0045c830 561 0xffffffffffffffff 0xffffffffffffffff n
 afS 0 @ 0x45c830
@@ -90870,29 +90903,13 @@ afvs 8 arg_8h int @ 0x47c1c0
 afS 8 @ 0x47c1c0
 "f DDEnumCallback 235 0x0047c1f0"
 "af+ 0x0047c1f0 DDEnumCallback f n"
-afc (null) @ 0x0047c1f0
+afc amd64 @ 0x0047c1f0
 afb+ 0x0047c1f0 0x0047c1f0 52 0x0047c24f 0x0047c224 n
 afb+ 0x0047c1f0 0x0047c224 43 0x0047c267 0xffffffffffffffff n
 afb+ 0x0047c1f0 0x0047c24f 24 0x0047c267 0xffffffffffffffff b
 afb+ 0x0047c1f0 0x0047c267 4 0x0047c294 0x0047c26b n
 afb+ 0x0047c1f0 0x0047c26b 41 0x0047c294 0xffffffffffffffff n
 afb+ 0x0047c1f0 0x0047c294 71 0xffffffffffffffff 0xffffffffffffffff n
-axd 0x76acb0 0x47c1f0
-axd 0x76ac9c 0x47c203
-axd 0x76acb0 0x47c219
-axc 0x47c24f 0x47c222
-axd 0x76ac9c 0x47c229
-axc 0x47c267 0x47c24d
-axd 0x76ac9c 0x47c254
-axc 0x47c294 0x47c269
-axd 0x76acb0 0x47c26b
-axd 0x76ac9c 0x47c27c
-axd 0x76acb0 0x47c29d
-axd 0x4a3544 0x47c2a4
-axd 0x76ac9c 0x47c2b1
-axC 0x48d9e0 0x47c2bf
-axd 0x76acb0 0x47c2c4
-axd 0x76acb0 0x47c2cd
 afS 20 @ 0x47c1f0
 "f setupDirectDraw? 158 0x0047c2e0"
 "af+ 0x0047c2e0 setupDirectDraw? f n"
@@ -91436,32 +91453,11 @@ afb+ 0x0047d9d0 0x0047db59 8 0x0047db67 0x0047db61 n
 afb+ 0x0047d9d0 0x0047db61 6 0x0047db67 0xffffffffffffffff n
 afb+ 0x0047d9d0 0x0047db67 22 0x0047db7d 0xffffffffffffffff n
 afb+ 0x0047d9d0 0x0047db7d 13 0xffffffffffffffff 0xffffffffffffffff n
-afvs 16 local_10h int @ 0x47d9d0
-afvs 20 local_14h int @ 0x47d9d0
-afvs 24 local_18h int @ 0x47d9d0
-afvs 28 local_1ch int @ 0x47d9d0
-afvs 32 local_20h int @ 0x47d9d0
-afvs 36 local_24h int @ 0x47d9d0
-afvs 40 local_28h int @ 0x47d9d0
-afvs 60 local_3ch int @ 0x47d9d0
-afvs 84 local_54h int @ 0x47d9d0
-afvs 92 local_5ch int @ 0x47d9d0
-afvs 96 local_60h int @ 0x47d9d0
-afvs 100 local_64h int @ 0x47d9d0
-afvs 200 local_c8h int @ 0x47d9d0
-afvs 216 local_d8h int @ 0x47d9d0
-afvs 1252 arg_4e4h int @ 0x47d9d0
 afS 1248 @ 0x47d9d0
-"f fcn.0047db90 34 0x0047db90"
-"af+ 0x0047db90 fcn.0047db90 f n"
+"f makeColorMaybe 34 0x0047db90"
+"af+ 0x0047db90 makeColorMaybe f n"
 afc amd64 @ 0x0047db90
 afb+ 0x0047db90 0x0047db90 34 0xffffffffffffffff 0xffffffffffffffff n
-afvs 4 arg_4h int @ 0x47db90
-afvs 5 arg_5h int @ 0x47db90
-afvs 6 arg_6h int @ 0x47db90
-afvs 7 arg_7h int @ 0x47db90
-afvs 8 arg_8h int @ 0x47db90
-afvs 12 arg_ch int @ 0x47db90
 afS 0 @ 0x47db90
 "f fcn.0047dbc0 47 0x0047dbc0"
 "af+ 0x0047dbc0 fcn.0047dbc0 f n"
@@ -92347,12 +92343,12 @@ afb+ 0x00480050 0x00480097 5 0xffffffffffffffff 0xffffffffffffffff n
 afvs 8 arg_8h int @ 0x480050
 afvs 12 arg_ch int @ 0x480050
 afS 20 @ 0x480050
-"f fcn.004800a0 21 0x004800a0"
-"af+ 0x004800a0 fcn.004800a0 f n"
+"f readFileToBufMaybe 21 0x004800a0"
+"af+ 0x004800a0 readFileToBufMaybe f n"
 afc amd64 @ 0x004800a0
 afb+ 0x004800a0 0x004800a0 21 0xffffffffffffffff 0xffffffffffffffff n
-afvs 4 arg_4h int @ 0x4800a0
-afvs 8 arg_8h int @ 0x4800a0
+afvs 4 str char * @ 0x4800a0
+afvs 8 outputBuf char * @ 0x4800a0
 afS 12 @ 0x4800a0
 "f fcn.004800c0 169 0x004800c0"
 "af+ 0x004800c0 fcn.004800c0 f n"
@@ -92368,9 +92364,6 @@ afb+ 0x004800c0 0x00480149 2 0x0048014b 0xffffffffffffffff n
 afb+ 0x004800c0 0x0048014b 15 0xffffffffffffffff 0xffffffffffffffff n
 afb+ 0x004800c0 0x0048015a 9 0x00480163 0xffffffffffffffff n
 afb+ 0x004800c0 0x00480163 6 0xffffffffffffffff 0xffffffffffffffff n
-afvs 12 arg_ch int @ 0x4800c0
-afvs 16 local_10h int @ 0x4800c0
-afvs 36 arg_24h int @ 0x4800c0
 afS 20 @ 0x4800c0
 "f fcn.00480170 175 0x00480170"
 "af+ 0x00480170 fcn.00480170 f n"
@@ -94224,8 +94217,8 @@ afvs 4 arg_4h int @ 0x485a00
 afvs 8 arg_8h int @ 0x485a00
 afvs 12 arg_ch int @ 0x485a00
 afS 0 @ 0x485a00
-"f fcn.00485a20 1015 0x00485a20"
-"af+ 0x00485a20 fcn.00485a20 f n"
+"f setupKeyToStrMap 1015 0x00485a20"
+"af+ 0x00485a20 setupKeyToStrMap f n"
 afc amd64 @ 0x00485a20
 afb+ 0x00485a20 0x00485a20 1015 0xffffffffffffffff 0xffffffffffffffff n
 afS 4 @ 0x485a20
@@ -114892,4 +114885,4 @@ tk func.RegisterServiceCtrlHandlerExW.arg.1=LPVOID,lpHandlerProc
 tk strndup=func
 # macros
 # seek
-s 0x0047c1f0
+s 0x0041fd60
