@@ -4159,9 +4159,7 @@ f fcn.0048b2f0 60 0x0048b2f0
 f fcn.004802d0 182 0x004802d0 
 f fcn.00490070 24 0x00490070 
 f setAndRetWindowHandle 10 0x0048b280 
-fs globals
 f resizeWindow 29 0x00478310 
-fs functions
 f sub.d3drm.dll_Direct3DRMCreate_6b0 6 0x0049b6b0 
 f sub.USER32.dll_DefWindowProcA_4c0 395 0x004784c0 
 f fcn.0047a580 64 0x0047a580 
@@ -4184,7 +4182,7 @@ f sub.WINMM.dll_mmioSeek_c0 54 0x004890c0
 f fcn.0047b6c0 196 0x0047b6c0 
 f DDRAW.DirectDrawEnumerateA 6 0x0049b6c2 
 f DDRAW.DirectDrawCreate 6 0x0049b6c8 
-f sub.USER32.dll_GetDC_f80 22 0x00477f80 
+f getWindowBitsPerPixel 22 0x00477f80 
 f sub.GDI32.dll_CreateRectRgn_ee0 273 0x0047cee0 
 f fcn.0047d520 468 0x0047d520 
 f fcn.0047d740 186 0x0047d740 
@@ -4367,7 +4365,7 @@ f fcn.0049ce70 56 0x0049ce70
 f fcn.0049cf50 60 0x0049cf50 
 f fcn.0049d870 87 0x0049d870 
 f EnumerateDisplays 39 0x0047c1c0 
-f fcn.0047c4b0 151 0x0047c4b0 
+f EnumerateDisplayModes 151 0x0047c4b0 
 f sub.USER32.dll_GetDlgItem_9d0 217 0x0049d9d0 
 f sub.USER32.dll_GetDlgItem_5e0 79 0x0049d5e0 
 fs *
@@ -7859,6 +7857,28 @@ f probZero 4 0x005343b0
 f setupDirectDraw 158 0x0047c2e0 
 f DDrawNumDisplays 4 0x005580a0 
 f DirectDrawDisplayArr 1 0x005580ac 
+f getDirectDrawDevices 158 0x0047c2e0 
+f AVIFIL32.AVIFileInit 6 0x0049b6ec 
+f fpsLock 4 0x0050593c 
+f DirectDrawDisplayArrPtr2 4 0x0056804c 
+f isFullscreen 4 0x00568058 
+f guidIDirectDraw4 16 0x0049f328 
+f guidIDirect3D3 16 0x0049f648 
+fs functions
+f fcn.0049d2f0 748 0x0049d2f0 
+f D3DEnumDevicesCallback 296 0x0047c380 
+fs globals
+f D3DEnumCurIdx 4 0x0076acb4 
+f D3DDeviceInfoArrPtr 1 0x0076aca4 
+f D3DDeviceInfoArr 1 0x0055963c 
+f D3DDeviceNum 4 0x005580a4 
+fs functions
+f DDEnumModesCallback2 191 0x0047c550 
+fs globals
+f DDDisplayModeCurIdx 4 0x0076acb8 
+f DispSurfaceInfoArrPtr 1 0x0076acac 
+f DispSurfaceNum 4 0x005580a8 
+f DispSurfaceInfoArr 1 0x0055abcc 
 # eval
 "e anal.a2f = false"
 "e anal.afterjmp = true"
@@ -8603,6 +8623,10 @@ CCu base64:YXJndiBhcyBvbmUgYmlnIHN0cg== @ 0x00477947
 CCu base64:anVtcHMgaWYgc2V0dXBXaW5kb3coKSBmYWlsZWQ= @ 0x004779bf
 CCu base64:Ym9vbCBub1NvdW5k @ 0x004779d1
 CCu base64:ZmFpbHVyZSBqdW1w @ 0x004779e3
+CCu base64:d2luZG93IGJpdA== @ 0x00477a03
+CCu base64:YmVzdCBiaXQ= @ 0x00477a09
+CCu base64:ZGVidWcgYml0 @ 0x00477a0a
+CCu base64:MQ== @ 0x00477a0b
 CCu base64:MA== @ 0x00477a2a
 CCu base64:ZmFpbHVyZSBqdW1w @ 0x00477a47
 CCu base64:MS4wZg== @ 0x00477a80
@@ -8620,6 +8644,7 @@ CCu base64:ZWN4IG5vdyBwb2ludHMgYXQgbm9uLXdoaXRlc3BhY2UgKG1heWJlIG51bGwgdGVybSk= 
 CCu base64:Y29udmVydHMgZWF4IHRvIGZsb2F0aW5nIHBvaW50 @ 0x00477eaa
 CCu base64:Y2FsYyAweDQ5ZThlNCAvPSBwYXJzZWRWYWw= @ 0x00477eba
 CCu base64:cHV0IGNhbGN1bGF0ZWQgdmFsIGluIG1lbSBhdCAweDUwNTkzYw== @ 0x00477ec0
+CCu base64:QklUU1BJWEVM @ 0x00477f85
 CCu base64:aWYgYml0MSBzZXQsIGN1c3RvbSBtZXNzYWdlIGhhbmRsZXIgZGlzYWJsZWQgKHBhdXNlIGJpdD8p @ 0x00478010
 CCu base64:V01fQUNUSVZBVEVBUFA= @ 0x00478020
 CCu base64:V01fU1lTS0VZRE9XTg== @ 0x00478025
@@ -8778,6 +8803,100 @@ CCu base64:YXJnMjogZHJpdmVyIGRlc2NyaXB0aW9uIHN0cg== @ 0x0047c298
 CCu base64:JihhcnJbaV0ub2ZmMHgxMCk= @ 0x0047c2be
 CCu base64:cmV0dXJuIDEgdG8ga2VlcCBlbnVtZXJhdGluZyAoY2IgZ2V0cyBjYWxsZWQgYWdhaW4p @ 0x0047c2d2
 CCu base64:cG9wcyAxNiBieXRlcyBvZmYgdGhlIHN0YWNr @ 0x0047c2d8
+CCu base64:Z2V0RGlyZWN0RHJhd0RldmljZXMoR1VJRCogZGlzcGxheUdVSUQsIHN0cnVjdCBEZXZpY2VJbmZvKiBEZXZpY2VJbmZvQXJyLCBpbnQqIG51bURldmljZXMpIGVudW1lcmF0ZXMgYWxsIHJlbmRlcmluZyBkZXZpY2VzIGZvciB0aGUgZ2l2ZW4gR1VJRC4gSW5mbyBhYm91dCB0aGUgZGV2aWNlcyBpcyBwdXQgaW4gdGhlIERldmljZUluZm8gYXJyLCBhbmQgdGhlIG51bWJlciBvZiB2YWxpZCBkZXZpY2VzIGlzIHB1dCBpbiAqbnVtRGV2aWNlcy4gcmV0dXJucyAxIG9uIHN1Y2Nlc3MsIDAgb24gZmFpbHVyZQ== @ 0x0047c2e0
+CCu base64:YXJnMTogRGlyZWN0RHJhd0Rpc3BsYXlBcnIq @ 0x0047c2e4
+CCu base64:bXVzdCBiZSBOVUxM @ 0x0047c2ee
+CCu base64:SURpcmVjdERyYXcgb3V0cHV0IHBhcmFt @ 0x0047c2ef
+CCu base64:RGlzcEluZm8qLCB3aGljaCBpcyBHVUlEKiBzaW5jZSBHVUlEIGlzIGF0IGJlZ2lubmluZw== @ 0x0047c2f0
+CCu base64:ZWF4ID0gSURpcmVjdERyYXcq @ 0x0047c300
+CCu base64:SURpcmVjdERyYXc0Kio= @ 0x0047c308
+CCu base64:UXVlcnlJbnRlcmZhY2Ug @ 0x0047c311
+CCu base64:ZWF4ID0gSURpcmVjdERyYXc0Kg== @ 0x0047c317
+CCu base64:JmFyZzE6IERpc3BJbmZvKio= @ 0x0047c31b
+CCu base64:b3ZlcndyaXRlcyBhcmcxIGxvY2FsIHRvIHN0b3JlIG91dHB1dCBwYXJhbQ== @ 0x0047c31f
+CCu base64:UXVlcnlJbnRlcmZhY2U= @ 0x0047c328
+CCu base64:YXJnMjogMHg1NTk2M2M= @ 0x0047c32e
+CCu base64:SURpcmVjdDNEMyo= @ 0x0047c332
+CCu base64:c3RvcmUgYXJnMj8= @ 0x0047c336
+CCu base64:TlVMTA== @ 0x0047c33c
+CCu base64:RW51bURldmljZXM= @ 0x0047c345
+CCu base64:SURpcmVjdDNEMyo= @ 0x0047c348
+CCu base64:UmVsZWFzZQ== @ 0x0047c354
+CCu base64:SURpcmVjdERyYXc0Kg== @ 0x0047c357
+CCu base64:UmVsZWFzZQ== @ 0x0047c35e
+CCu base64:SURpcmVjdERyYXcq @ 0x0047c361
+CCu base64:UmVsZWFzZQ== @ 0x0047c368
+CCu base64:YXJnMzogMHg1NTgwYTQ= @ 0x0047c36b
+CCu base64:c3RvcmUgbnVtIGRldmljZXM= @ 0x0047c375
+CCu base64:cmV0dXJuIDEgb24gc3VjY2Vzcw== @ 0x0047c377
+CCu base64:RDNERW51bURldmljZXNDYWxsYmFjayhHVUlEKiwgY2hhciogZGV2aWNlRGVzY3JpcHRpb24sIGNoYXIqIGRldmljZU5hbWUsIEQzRERFVklDRURFU0MqLCBEM0RERVZJQ0VERVNDKiwgdm9pZCogdXNlckRhdGEpIHVzZXJEYXRhIGlzIG51bGw= @ 0x0047c380
+CCu base64:ZWF4ID0gaSAqIDM= @ 0x0047c387
+CCu base64:ZWF4ID0gMjMgKiBp @ 0x0047c38d
+CCu base64:ZWF4ID0gNjkgKiBp @ 0x0047c395
+CCu base64:ZWF4ID0gRDNERGV2aWNlSW5mb0FyclB0ciArIGksIHN0cnVjdCBzaXplID0gMjc2 @ 0x0047c398
+CCu base64:YXJnNDogRDNERGV2aWNlRGVzYyo= @ 0x0047c39b
+CCu base64:RDNERGV2aWNlSW5mb0FyclB0cltpXS5mbGFncyA9IFZBTElE @ 0x0047c39f
+CCu base64:ZGV2RGVzYy0+ZGNtQ29sb3JNb2RlbCAoRDNEQ09MT1JNT0RFTCk= @ 0x0047c3a9
+CCu base64:aWYgKGRldkRlc2MtPmNvbG9ybW9kZWwgIT0gMCkgRDNERGV2aWNlSW5mb0FyclB0cltpXS5mbGFncyA9IFZBTElEIHwgPw== @ 0x0047c3b0
+CCu base64:aWYgKGRldkRlc2MtPmNvbG9ybW9kZWwgPT0gMCkgZGV2RGVzYyA9IGRldkRlc2MyIChhcmc1KQ== @ 0x0047c3bc
+CCu base64:ZGV2RGVzYy0+ZHdGbGFncyAmIEQzREREX0NPTE9STU9ERUw= @ 0x0047c3c0
+CCu base64:anVtcCBpZiBubyB2YWxpZCBjb2xvciBtb2RlbCBvbiBkZXZpY2U= @ 0x0047c3c4
+CCu base64:ZGV2RGVzYy0+ZGNtQ29sb3JNb2RlbA== @ 0x0047c3c6
+CCu base64:anVtcCBpZiBjb2xvcm1vZGVsICE9IDI= @ 0x0047c3ca
+CCu base64:YXJyW2ldLmZsYWdzIHw9IENPTE9SX01PREVMXzI= @ 0x0047c3d5
+CCu base64:ZGV2RGVzYy0+ZHdGbGFncyAmIEQzREREX0RFVklDRVJFTkRFUkJJVERFUFRI @ 0x0047c3e0
+CCu base64:ZGV2RGVzYy0+ZHdEZXZpY2VSZW5kZXJCaXREZXB0aCAmIEREQkRfOA== @ 0x0047c3e5
+CCu base64:YXJyW2ldLmZsYWdzIHw9IDhCSVRfUEVSX1BJWEVM @ 0x0047c3f1
+CCu base64:QkRfMTY= @ 0x0047c3f8
+CCu base64:YXJyW2ldLmZsYWdzIHw9IDE2QklUX1BFUl9QSVhFTA== @ 0x0047c404
+CCu base64:MjQgYml0IHBlciBwaXhlbA== @ 0x0047c417
+CCu base64:MzIgYml0IHBlciBwaXhlbA== @ 0x0047c42a
+CCu base64:ZGV2RGVzYy0+ZHdGbGFncyAmIEQzREREX0RFVkNBUFM= @ 0x0047c430
+CCu base64:ZGV2RGVzYy0+ZHdEZXZDYXBzICYgRDNEREVWQ0FQU19URVhUVVJFVklERU9NRU1PUlkgPSAweDIwMA== @ 0x0047c439
+CCu base64:ZGV2RGVzYy0+ZHdEZXZDYXBzICYgRDNEREVWQ0FQU19URVhUVVJFU1lTVEVNTUVNT1JZID0gMHgxMDA= @ 0x0047c449
+CCu base64:YXJyW2ldLmZsYWdzIHw9IChlaXRoZXIgdGV4RnJvbVN5c3RlbU1lbSBvciB0ZXhGcm9tRGV2aWNlTWVtKQ== @ 0x0047c457
+CCu base64:YXJnMTogR1VJRCo= @ 0x0047c45d
+CCu base64:ZWN4ID0gYXJyICsgaQ== @ 0x0047c461
+CCu base64:ZWF4ID0gJmFycltpXS5zdHI= @ 0x0047c463
+CCu base64:Y29weSBHVUlEIGludG8gYXJyW2ldIEdVSUQgcG9ydGlvbg== @ 0x0047c466
+CCu base64:YXJnMjogZGV2aWNlIGRlc2NyaXB0aW9u @ 0x0047c47c
+CCu base64:YXJnMzogZGV2aWNlIG5hbWU= @ 0x0047c480
+CCu base64:JmFycltpXS5zdHI= @ 0x0047c48b
+CCu base64:YXJnMTogRGlzcGxheUluZm8q @ 0x0047c4b1
+CCu base64:ZXNpIHVzZWQgYXMgMA== @ 0x0047c4b6
+CCu base64:aWYgKGRpc3BJbmZvLT5mbGFncyAmIFZBTElEID09IDApIGZhaWw= @ 0x0047c4c2
+CCu base64:YWwgPSBmbGFncyAmIE5PX0dVSUQ/ @ 0x0047c4cc
+CCu base64:aWYgKG5vR1VJRCkgZ3VpZCA9IE5VTEwgZWxzZSBndWlkID0gZGlzcEluZm8= @ 0x0047c4d5
+CCu base64:ZWN4ID0gRGlyZWN0RHJhdyoq @ 0x0047c4d7
+CCu base64:R1VJRCBpZiB0aGVyZSBpcyBvbmUsIE5VTEwgb3RoZXJ3aXNl @ 0x0047c4dc
+CCu base64:RGlyZWN0RHJhdyo= @ 0x0047c4e6
+CCu base64:JmFyZzE6IGFyZzEgaXMgb3ZlcndyaXR0ZW4gZm9yIHVzZSBhcyBvdXRwdXQgcGFyYW0= @ 0x0047c4ea
+CCu base64:UXVlcnlJbnRlcmZhY2U= @ 0x0047c4f7
+CCu base64:YXJnMzogMHg1NWFiY2M= @ 0x0047c4fd
+CCu base64:SURpcmVjdERyYXc0Kg== @ 0x0047c501
+CCu base64:JmFyZzIgPSBib29sIGlzRnVsbHNjcmVlbi4gUGFzc2VkIGluIHRvIGNhbGxiYWNrIGFzIHVzZXIgcG9pbnRlcg== @ 0x0047c516
+CCu base64:c3VyZmFjZURlc2Mgc3RydWN0ID0gTlVMTCB0byBlbnVtZXJhdGUgYWxsIG1vZGVz @ 0x0047c517
+CCu base64:ZHdGbGFncyA9IDA= @ 0x0047c518
+CCu base64:RW51bURpc3BsYXlNb2Rlcw== @ 0x0047c51a
+CCu base64:UmVsZWFzZQ== @ 0x0047c529
+CCu base64:UmVsZWFzZQ== @ 0x0047c533
+CCu base64:YXJnNDogMHg1NTgwYTg= @ 0x0047c536
+CCu base64:cmV0dXJuIDEgb24gc3VjY2Vzcw== @ 0x0047c542
+CCu base64:ZXNpID0gMTcgKiBp @ 0x0047c561
+CCu base64:YXJnMTogRERTdXJmYWNlRGVzYzIq @ 0x0047c563
+CCu base64:ZXNpID0gMjcyICogaQ== @ 0x0047c567
+CCu base64:ZXNpID0gYXJyICsgaQ== @ 0x0047c56a
+CCu base64:YXJnMjogdXNlciBwdHIgPSAmaXNGdWxsc2NyZWVu @ 0x0047c56d
+CCu base64:YXJyW2ldLmZsYWdzID0gVkFMSUQ= @ 0x0047c571
+CCu base64:c3VyZi0+ZHdXaWR0aA== @ 0x0047c57b
+CCu base64:YXJyW2ldLndpZHRoID0gc3VyZi0+ZHdXaWR0aA== @ 0x0047c57e
+CCu base64:c3VyZi0+ZHdIZWlnaHQ= @ 0x0047c580
+CCu base64:YXJyW2ldLmhlaWdodCA9IHN1cmYtPmR3SGVpZ2h0 @ 0x0047c583
+CCu base64:cHJvYiBiaXQgcGVyIHBpeGVs @ 0x0047c586
+CCu base64:aXNGdWxsc2NyZWVu @ 0x0047c58e
+CCu base64:aXNGdWxsc2NyZWVu @ 0x0047c5ca
+CCu base64:aWYgd2luZG93IHBpeGVsIGRlcHRoICE9IHRoaXMgZGV2aWNlcyBwaXhlbCBkZXB0aA== @ 0x0047c5dd
+CCu base64:cmVtb3ZlIFZBTElEIGZsYWc= @ 0x0047c5e2
 CCu base64:RFdPUkQgZHdOZXdMb25n @ 0x0047c61e
 CCu base64:V2luZG93TG9uZ0luZGV4IG5JbmRleA== @ 0x0047c61f
 CCu base64:SFdORCBoV25k @ 0x0047c620
@@ -8812,7 +8931,6 @@ CCu base64:cHJvYiByZXR1cm5zIDAgb24gc3VjY2Vzcw== @ 0x0047edd3
 CCu base64:cmVkbyBjYWxsLCBzdG9yaW5nIGVyciBjb2RlIHRoaXMgdGltZSBsb2w= @ 0x0047edf1
 CCu base64:ZWF4ID0gZGlyZWN0SW5wdXRJbnRlcmZhY2Ugb2Jq @ 0x0047ee05
 CCu base64:cHJvYmFibHkgSURpcmVjdElucHV0OjpDcmVhdGVEZXZpY2U= @ 0x0047ee19
-CCu base64:dXNlIGdsZncvZGlucHV0LmggdG8gc2VlIGludGVyZmFjZSBmdW5jIG9mZnNldHM= @ 0x0047ee59
 CCu base64:ZnVuYyBndWVzc2VzIGFyZSB1c2luZyBEaXJlY3RJbnB1dERldmljZUE= @ 0x0047ee5a
 CCu base64:U2V0RGF0YUZvcm1hdA== @ 0x0047ee5c
 CCu base64:RElTQ0xfTk9ORVhDTFVTSVZFIHwgRElTQ0xfRk9SRUdST1VORCwgaS5lLiBvbmx5IGRvZXMgaW5wdXQgd2hlbiBtYXhpbWl6ZWQsIGRvZXNuJ3QgbmVlZCB0byBiZSBvbmx5IGlucHV0IGVhdGluZyBhcHA= @ 0x0047ee96
@@ -9442,7 +9560,21 @@ CCu base64:b3JpZ2luYWwgZmlsZSBkYXRh @ 0x0049c80d
 CCu base64:b24gc3VjY2Vzcywgc3RvcmUgY3JlYXRlZCBidWYgaW4gb3V0cHV0IHBhcmFt @ 0x0049c82b
 CCu base64:YXJnMTogZmlsZSBkYXRh @ 0x0049c841
 CCu base64:YXJnMjogb3V0cHV0IGJ1Zg== @ 0x0049c878
-CCu base64:anVtcHMgaWYgZGlyZWN0eCBiYWQ= @ 0x0049d127
+CCu base64:YXJnMjogZGVidWcgYml0 @ 0x0049d075
+CCu base64:aWYgKGRlYnVnQml0KSBjYWxsIHNvbWUgZnVuY3M= @ 0x0049d080
+CCu base64:aWYgKG51bURpc3BsYXlzID09IDApIHJldHVybiAw @ 0x0049d0c1
+CCu base64:YXJnMzogYmVzdCBiaXQ= @ 0x0049d0c7
+CCu base64:ZXNpID0gMCwgZWRpID0gMQ== @ 0x0049d0d5
+CCu base64:anVtcCBmb3Igbm9uLWJlc3QgZ3JhcGhpY3M= @ 0x0049d0d7
+CCu base64:YXJnNDogd2luZG93IGJpdA== @ 0x0049d0dd
+CCu base64:ZWJwID0gaWR4IG9mIGxhc3QgZGlzcGxheSBpbiBEaXJlY3REcmF3RGlzcGxheUFycg== @ 0x0049d0e7
+CCu base64:b3ZlcndyaXRpbmcgc3RvcmVkIHZhbCBvZiBlY3ggd2l0aCAx @ 0x0049d0ea
+CCu base64:ZWN4ID0gaXNGdWxsc2NyZWVuID0gIXdpbmRvd0JpdA== @ 0x0049d0ee
+CCu base64:aWYgKGxhc3RJZHggPCAwKSBqbXA= @ 0x0049d0f9
+CCu base64:ZWRpID0gRGlyZWN0RHJhd0Rpc3BsYXlBcnIgKyBsYXN0SWR4 @ 0x0049d10b
+CCu base64:RGlyZWN0RHJhd0Rpc3BsYXlBcnIgKyBp @ 0x0049d11c
+CCu base64:Ym9vbCBpc0Z1bGxzY3JlZW4= @ 0x0049d13c
+CCu base64:RGlyZWN0RHJhd0Rpc3BsYXlBcnIgKyBp @ 0x0049d13d
 CCu base64:aW50IG5JRERsZ0l0ZW0= @ 0x0049d5e5
 CCu base64:SFdORCBoRGxn @ 0x0049d5ea
 CCu base64:aSA9ICoweDU3NTRlMA== @ 0x0049d870
@@ -9458,14 +9590,20 @@ CCu base64:SFdORCBoRGxn @ 0x0049da56
 CCu base64:WzAxXSAtci0tIHNlY3Rpb24gc2l6ZSAxMTI2NCBuYW1lZCAucmRhdGE= @ 0x0049e000
 CCu base64:WzAyXSAtcnctIHNlY3Rpb24gc2l6ZSA3MzIxNiBuYW1lZCAuZGF0YQ== @ 0x004a1000
 CCu base64:aW50W10gd2hlcmUgZm9yIGV2ZW4gdmFsdWVzIG9mIGksIGFycltpXSA9PSBhIHdpbiBlcnIgY29kZSBhbmQgYXJyW2kgKyAxXSA9PSB0aGUgY29kZSBmb3Igc29tZXRoaW5nIGVsc2UgKG1heWJlIHBvc2l4IGVycm5vPyk= @ 0x004b24c0
-CCu base64:Yml0MTogcGF1c2VkDQpiaXQ1OiBubQ0KYml0NjogYmVzdA0KYml0ODogd2luZG93DQpiaXQ5OiBpbkxldmVsPyBzdGFydExldmVsPw0KYml0MTA6IGNsZWFuIHNhdmVzDQpiaXQxMzogZGVidWcNCmJpdDE0OiBkdWFsbW91c2UNCmJpdDE1OiBkZWJ1Z2NvbXBsZXRlDQpiaXQxNzogZnRtDQpiaXQxODogZnZm @ 0x00505f84
+CCu base64:MHggICAgICAyIGJpdDEgPSAyOiBwYXVzZWQNCjB4ICAgICAgNCBiaXQyDQoweCAgICAgIDggYml0Mw0KMHggICAgIDEwIGJpdDQNCjB4ICAgICAyMCBiaXQ1OiBubQ0KMHggICAgIDQwIGJpdDY6IGJlc3QNCjB4ICAgICA4MCBiaXQ3DQoweCAgICAxMDAgYml0ODogd2luZG93DQoweCAgICAyMDAgYml0OTogaW5MZXZlbD8gc3RhcnRMZXZlbD8NCjB4ICAgIDQwMCBiaXQxMDogY2xlYW4gc2F2ZXMNCjB4ICAgIDgwMCBiaXQxMQ0KMHggICAxMDAwIGJpdDEyDQoweCAgIDIwMDAgYml0MTM6IGRlYnVnDQoweCAgIDQwMDAgYml0MTQ6IGR1YWxtb3VzZQ0KMHggICA4MDAwIGJpdDE1OiBkZWJ1Z2NvbXBsZXRlDQoweCAgMTAwMDAgYml0MTY6IHRlc3RlcmNhbGwNCjB4ICAyMDAwMCBiaXQxNzogdGVzdGxldmVscw0KMHggIDQwMDAwIGJpdDE4OiBmdG0NCjB4ICA4MDAwMCBiaXQxOTogZnZmDQoweCAxMDAwMDAgYml0MjA6IHJlZHVjZXNhbXBsZXMNCjB4IDIwMDAwMCBiaXQyMTogc2hvd3ZlcnNpb24NCjB4IDQwMDAwMCBiaXQyMjogcmVkdWNlYW5pbWF0aW9uDQoweCA4MDAwMDAgYml0MjM6IHJlZHVjZXByb21lc2hlcw0KMHgxMDAwMDAwIGJpdDI0OiByZWR1Y2VmbGljcw0KMHgyMDAwMDAwIGJpdDI1OiByZWR1Y2VpbWFnZXM= @ 0x00505f84
 CCu base64:Yml0cyBjYW4gYmUgbWFudWFsbHkgc2V0IHZpYSAtcHJvZ3JhbW1lck4NCmJpdCAxOiB0cnVlIGlmIC1wcm9ncmFtbWVyIG9wdGlvbiBzcGVjaWZpZWQNCmJpdCAyOiB0cnVlIGlmIC10ZXN0ZXJjYWxsIHNwZWNpZmllZA== @ 0x00505f88
 CCu base64:MHhjID0gb3V0IG9mIG1lbT8= @ 0x005490d0
 CCu base64:bnVtYmVyIG9mIGRpc3BsYXlzIHJldHJpZXZlZCBmcm9tIEVudW1lcmF0ZURpc3BsYXlz @ 0x005580a0
+CCu base64:bnVtYmVyIG9mIHZhbGlkIGVudHJpZXMgaW4gRDNERGV2aWNlSW5mb0Fycg== @ 0x005580a4
+CCu base64:bnVtYmVyIG9mIHZhbGlkIGVudHJpZXMgaW4gRGlzcFN1cmZhY2VJbmZvQXJy @ 0x005580a8
 CCu base64:c2VlIERpcmVjdERyYXdEaXNwbGF5QXJyUHRyIGZvciBpbmZv @ 0x005580ac
+CCu base64:c2VlIEQzRERldmljZUluZm9BcnJQdHI= @ 0x0055963c
+CCu base64:c2VlIERpc3BTdXJmYWNlSW5mb0FyclB0cg== @ 0x0055abcc
 CCu base64:c3RydWN0IHdhZF9maWxlPyB7DQoJMA0KCTQ6IGJvb2wgaXNWYWxpZD8NCgk4DQoJYw0KCTEwOiBGSUxFKg0KCTE0OiBjaGFyKiogZGF0YTE6IHNpemUgPSBuDQoJMTg6IGNoYXIqKiBkYXRhMiAvIGZpbGVOYW1lczogc2l6ZSA9IG4NCgkxYzogUmVzb3VyY2VJbmZvKiBkYXRhMyAvIHJlc291cmNlSW5mbzogc2l6ZSA9IG4NCgkyMDogaW50MzIgbjogbnVtIHN0dWZmIGluIGZpbGUsIGJ5dGVzIDQtOCBvZiB3YWQgZmlsZQ0KfSBzaXplID0gMzYgYnl0ZXMNCg0Kc3RydWN0IFJlc291cmNlSW5mbyB7DQoJMDogaW50MzIgc29tZSB2YWx1ZSwgYWx3YXlzIDE/DQoJNDogaW50MzIgcmVzb3VyY2VTaXplOiBzaXplIG9mIHJlc291cmNlIGluIGJ5dGVzDQoJODogaW50MzIgY29weU9mQWJvdmU/IGFsd2F5cyBzZWVtcyB0byBiZSB0aGUgc2FtZQ0KCWM6IGludDMyIGZpbGVPZmZzZXQ6IG9mZnNldCAoaW4gYnl0ZXMgZnJvbSB0aGUgc3RhcnQgb2YgdGhlIGZpbGUpIHdoZXJlIHRoZSByZXNvdXJjZSBpcyBsb2NhdGVkIGluIHRoZSBvcmlnaW5hbCBkaXNrIHdhZCBmaWxlDQp9 @ 0x00575500
 CCu base64:c3RydWN0IFJlc291cmNlIHsNCgl2b2lkKiBkYXRhOyBwdHIgdG8gbWFsbG9jZWQgYnVmDQoJYm9vbCBpblVzZTsgdHJ1ZSBpZiB0aGlzIHJlc291cmNlIGlzIGluIHVzZSwgaGFzIHZhbGlkIGZpZWxkcw0KCWludCB3YWRJZHg7IGluZGV4IG9mIHRoZSB3YWQgdGhpcyByZXNvdXJjZSBjb21lcyBmcm9tDQoJaW50IHJlc291cmNlSWR4OyBpbmRleCBpbiB0aGUgd2FkIGZpbGUgb2YgdGhpcyByZXNvdXJjZQ0KfQ0KCQ== @ 0x005756a0
-CCu base64:cHRyIHRvIDB4NTU4MGFjLCB3aGljaCBpcyBhbiBhcnJheSBvZiBzdHJ1Y3QgRGlzcEluZm8gew0KCTAtMHgxMDogc3RydWN0IEdVSUQgY29waWVkIGZyb20gZGlzcGxheSBkcml2ZXINCgkweDEwOiBjaGFyWzB4MTAwXSBpbmZvOyBmb3JtIG9mICJEcml2ZXJEZXNjcmlwdGlvbiAoRHJpdmVyTmFtZSkiDQoJMHgxMTA6IGZsYWdzOyBiaXQwID0gdmFsaWQgKHRoaXMgaXMgYSBkcml2ZXIsIG5vdCBlbXB0eSBtZW0pOyBiaXQ0LCBiaXQ1ID0gbm8gZ3VpZA0KfQ== @ 0x0076ac9c
+CCu base64:cHRyIHRvIDB4NTU4MGFjLCB3aGljaCBpcyBhbiBhcnJheSBvZiBzdHJ1Y3QgRGlzcEluZm8gew0KCTAtMHgxMDogc3RydWN0IEdVSUQgY29waWVkIGZyb20gZGlzcGxheSBkcml2ZXINCgkweDEwOiBjaGFyWzB4MTAwXSBpbmZvOyBmb3JtIG9mICJEcml2ZXJEZXNjcmlwdGlvbiAoRHJpdmVyTmFtZSkiDQoJMHgxMTA6IGZsYWdzOyBiaXQwID0gdmFsaWQgRGlzcEluZm8gc3RydWN0OyBiaXQ0LCBiaXQ1ID0gbm8gZ3VpZA0KfQ== @ 0x0076ac9c
+CCu base64:c3RydWN0IERldkluZm8gew0KCTA6IEdVSUQgWzE2IGJ5dGVzXQ0KCTE2OiBkZXZpY2UgaW5mbyBzdHIsIGluIGZvcm0gIkRFVklDRSBOQU1FIChERVZJQ0UgSU5GTykiDQoJMHgxMTAgPSAyNzI6IGJpdCBmaWVsZC4gYml0MCA9IGlzVmFsaWQgKHRoaXMgRGV2SW5mbyBkZXNjcmliZXMgYSBkZXZpY2Ugb24gdGhlIG1hY2hpbmUpDQp9IHRvdGFsIHNpemUgMjc2IGJ5dGVzDQoNCmJpdCBmaWVsZCBmbGFnczoNCjA6IGlzIHZhbGlkDQoweDEwOiA4IGJpdHMgcGVyIHB4aWVsDQoweDIwOiAxNiBiaXQgcGVyIHBpeGVsDQoweDQwOiAyNCBiaXQgcGVyIHBpeGVsDQoweDgwOiAzMiBiaXQgcGVyIHBpeGVsDQoweDEwMDA6IENPTE9SX01PREVMXzIgPw0KMHg0MDAwOiBjYW4gdGV4dHVyZSBmcm9tIGRldmljZSBtZW1vcnkNCjB4ODAwMDogY2FuIHRleHR1cmUgZnJvbSBzeXN0ZW0gbWVtb3J5 @ 0x0076aca4
+CCu base64:c3RydWN0IERpc3BTdXJmYWNlSW5mbyB7DQoJMDogd2lkdGgNCgk0OiBoZWlnaHQNCgk4OiBwcm9iIGJpdCBwZXIgcGl4ZWwNCgljOiBpbmZvIHN0ciBmb3JtYXQgIlNDUkVFTldJRFRIeFNDUkVFTkhFSUdIVCAoQklUU1BFUlBJWEVMKSINCgkweDEwYyA9IDI2ODogZmxhZ3MNCn0gc2l6ZSA9IDI3Mg0KDQpmbGFnczoNCjB4MSA9IFZBTElEDQ== @ 0x0076acac
 CCu base64:WzAzXSAtcnctIHNlY3Rpb24gc2l6ZSA0NjA4IG5hbWVkIC5pZGF0YQ== @ 0x0076e000
 CCu base64:WzA0XSAtci0tIHNlY3Rpb24gc2l6ZSAzMDcyIG5hbWVkIC5yc3Jj @ 0x00770000
 Cd 4 @ 0x0076e360
@@ -89608,8 +89746,8 @@ afS 4 @ 0x477f30
 afc amd64 @ 0x00477f70
 afb+ 0x00477f70 0x00477f70 6 0xffffffffffffffff 0xffffffffffffffff n
 afS 0 @ 0x477f70
-"f sub.USER32.dll_GetDC_f80 22 0x00477f80"
-"af+ 0x00477f80 sub.USER32.dll_GetDC_f80 f n"
+"f getWindowBitsPerPixel 22 0x00477f80"
+"af+ 0x00477f80 getWindowBitsPerPixel f n"
 afc amd64 @ 0x00477f80
 afb+ 0x00477f80 0x00477f80 22 0xffffffffffffffff 0xffffffffffffffff n
 afS 12 @ 0x477f80
@@ -91243,8 +91381,8 @@ afb+ 0x0047c1f0 0x0047c267 4 0x0047c294 0x0047c26b n
 afb+ 0x0047c1f0 0x0047c26b 41 0x0047c294 0xffffffffffffffff n
 afb+ 0x0047c1f0 0x0047c294 71 0xffffffffffffffff 0xffffffffffffffff n
 afS 20 @ 0x47c1f0
-"f setupDirectDrawProb 158 0x0047c2e0"
-"af+ 0x0047c2e0 setupDirectDrawProb f n"
+"f getDirectDrawDevices 158 0x0047c2e0"
+"af+ 0x0047c2e0 getDirectDrawDevices f n"
 afc amd64 @ 0x0047c2e0
 afb+ 0x0047c2e0 0x0047c2e0 32 0x0047c36b 0x0047c300 n
 afb+ 0x0047c2e0 0x0047c300 23 0x0047c361 0x0047c317 n
@@ -91254,8 +91392,34 @@ afb+ 0x0047c2e0 0x0047c357 10 0x0047c361 0xffffffffffffffff n
 afb+ 0x0047c2e0 0x0047c361 10 0x0047c36b 0xffffffffffffffff n
 afb+ 0x0047c2e0 0x0047c36b 19 0xffffffffffffffff 0xffffffffffffffff n
 afS 36 @ 0x47c2e0
-"f fcn.0047c4b0 151 0x0047c4b0"
-"af+ 0x0047c4b0 fcn.0047c4b0 f n"
+"f D3DEnumDevicesCallback 296 0x0047c380"
+"af+ 0x0047c380 D3DEnumDevicesCallback f n"
+afc amd64 @ 0x0047c380
+afb+ 0x0047c380 0x0047c380 48 0x0047c3bc 0x0047c3b0 n
+afb+ 0x0047c380 0x0047c3b0 12 0x0047c3c0 0xffffffffffffffff n
+afb+ 0x0047c380 0x0047c3bc 4 0x0047c3c0 0xffffffffffffffff b
+afb+ 0x0047c380 0x0047c3c0 6 0x0047c3db 0x0047c3c6 n
+afb+ 0x0047c380 0x0047c3c6 6 0x0047c3db 0x0047c3cc n
+afb+ 0x0047c380 0x0047c3cc 15 0x0047c3db 0xffffffffffffffff n
+afb+ 0x0047c380 0x0047c3db 10 0x0047c430 0x0047c3e5 n
+afb+ 0x0047c380 0x0047c3e5 12 0x0047c3f8 0x0047c3f1 n
+afb+ 0x0047c380 0x0047c3f1 7 0x0047c3f8 0xffffffffffffffff n
+afb+ 0x0047c380 0x0047c3f8 12 0x0047c40b 0x0047c404 n
+afb+ 0x0047c380 0x0047c404 7 0x0047c40b 0xffffffffffffffff n
+afb+ 0x0047c380 0x0047c40b 12 0x0047c41e 0x0047c417 n
+afb+ 0x0047c380 0x0047c417 7 0x0047c41e 0xffffffffffffffff n
+afb+ 0x0047c380 0x0047c41e 12 0x0047c430 0x0047c42a n
+afb+ 0x0047c380 0x0047c42a 6 0x0047c430 0xffffffffffffffff n
+afb+ 0x0047c380 0x0047c430 6 0x0047c45d 0x0047c436 n
+afb+ 0x0047c380 0x0047c436 8 0x0047c449 0x0047c43e n
+afb+ 0x0047c380 0x0047c43e 11 0x0047c457 0xffffffffffffffff n
+afb+ 0x0047c380 0x0047c449 5 0x0047c45d 0x0047c44e n
+afb+ 0x0047c380 0x0047c44e 9 0x0047c457 0xffffffffffffffff b
+afb+ 0x0047c380 0x0047c457 6 0x0047c45d 0xffffffffffffffff n
+afb+ 0x0047c380 0x0047c45d 75 0xffffffffffffffff 0xffffffffffffffff n
+afS 20 @ 0x47c380
+"f EnumerateDisplayModes 151 0x0047c4b0"
+"af+ 0x0047c4b0 EnumerateDisplayModes f n"
 afc amd64 @ 0x0047c4b0
 afb+ 0x0047c4b0 0x0047c4b0 18 0x0047c536 0x0047c4c2 n
 afb+ 0x0047c4b0 0x0047c4c2 10 0x0047c536 0x0047c4cc n
@@ -91264,13 +91428,34 @@ afb+ 0x0047c4b0 0x0047c4e6 23 0x0047c52c 0x0047c4fd n
 afb+ 0x0047c4b0 0x0047c4fd 47 0x0047c52c 0xffffffffffffffff n
 afb+ 0x0047c4b0 0x0047c52c 10 0x0047c536 0xffffffffffffffff n
 afb+ 0x0047c4b0 0x0047c536 17 0xffffffffffffffff 0xffffffffffffffff n
-afvs 4 local_4h int @ 0x47c4b0
-afvs 8 arg_8h int @ 0x47c4b0
-afvs 12 local_ch int @ 0x47c4b0
-afvs 16 local_10h int @ 0x47c4b0
-afvs 20 local_14h int @ 0x47c4b0
-afvs 24 local_18h int @ 0x47c4b0
 afS 40 @ 0x47c4b0
+"f DDEnumModesCallback2 191 0x0047c550"
+"af+ 0x0047c550 DDEnumModesCallback2 f n"
+afc (null) @ 0x0047c550
+afb+ 0x0047c550 0x0047c550 66 0x0047c5b1 0x0047c592 n
+afb+ 0x0047c550 0x0047c592 31 0x0047c5ca 0xffffffffffffffff n
+afb+ 0x0047c550 0x0047c5b1 25 0x0047c5ca 0xffffffffffffffff b
+afb+ 0x0047c550 0x0047c5ca 5 0x0047c5fa 0x0047c5cf n
+afb+ 0x0047c550 0x0047c5cf 9 0x0047c5fa 0x0047c5d8 n
+afb+ 0x0047c550 0x0047c5d8 10 0x0047c5fa 0x0047c5e2 n
+afb+ 0x0047c550 0x0047c5e2 24 0xffffffffffffffff 0xffffffffffffffff n
+afb+ 0x0047c550 0x0047c5fa 21 0xffffffffffffffff 0xffffffffffffffff n
+axd 0x76acb8 0x47c550
+axd 0x76acac 0x47c555
+axc 0x47c5b1 0x47c590
+axd 0x4aae6c 0x47c5a1
+axC 0x48d9e0 0x47c5a7
+axc 0x47c5ca 0x47c5af
+axd 0x4aae64 0x47c5bc
+axC 0x48d9e0 0x47c5c2
+axc 0x47c5fa 0x47c5cd
+axd 0x76acb8 0x47c5cf
+axc 0x47c5fa 0x47c5d6
+axC 0x477f80 0x47c5d8
+axc 0x47c5fa 0x47c5e0
+axd 0x76acb8 0x47c5fa
+axd 0x76acb8 0x47c602
+afS 24 @ 0x47c550
 "f sub.USER32.dll_ShowCursor_610 701 0x0047c610"
 "af+ 0x0047c610 sub.USER32.dll_ShowCursor_610 f n"
 afc amd64 @ 0x0047c610
@@ -102940,6 +103125,38 @@ afb+ 0x0049d030 0x0049d29a 38 0xffffffffffffffff 0xffffffffffffffff n
 afb+ 0x0049d030 0x0049d2c0 8 0xffffffffffffffff 0xffffffffffffffff n
 afb+ 0x0049d030 0x0049d2c8 28 0xffffffffffffffff 0xffffffffffffffff n
 afS 32 @ 0x49d030
+"f fcn.0049d2f0 748 0x0049d2f0"
+"af+ 0x0049d2f0 fcn.0049d2f0 f n"
+afc amd64 @ 0x0049d2f0
+afb+ 0x0049d2f0 0x0049d2f0 25 0x0049d41e 0x0049d309 n
+afb+ 0x0049d2f0 0x0049d309 117 0x0049d385 0x0049d37e n
+afb+ 0x0049d2f0 0x0049d37e 7 0x0049d38a 0xffffffffffffffff n
+afb+ 0x0049d2f0 0x0049d385 5 0x0049d38a 0xffffffffffffffff b
+afb+ 0x0049d2f0 0x0049d38a 48 0x0049d3e1 0x0049d3ba n
+afb+ 0x0049d2f0 0x0049d3ba 5 0x0049d3bf 0xffffffffffffffff b
+afb+ 0x0049d2f0 0x0049d3bf 27 0x0049d3bf 0x0049d3da n
+afb+ 0x0049d2f0 0x0049d3da 7 0x0049d3e1 0xffffffffffffffff n
+afb+ 0x0049d2f0 0x0049d3e1 61 0xffffffffffffffff 0xffffffffffffffff n
+afb+ 0x0049d2f0 0x0049d41e 11 0x0049d5cd 0x0049d429 n
+afb+ 0x0049d2f0 0x0049d429 22 0x0049d565 0x0049d43f n
+afb+ 0x0049d2f0 0x0049d43f 7 0x0049d487 0x0049d446 n
+afb+ 0x0049d2f0 0x0049d446 65 0xffffffffffffffff 0xffffffffffffffff n
+afb+ 0x0049d2f0 0x0049d487 7 0x0049d4f7 0x0049d48e n
+afb+ 0x0049d2f0 0x0049d48e 65 0x0049d5bb 0x0049d4cf n
+afb+ 0x0049d2f0 0x0049d4cf 40 0xffffffffffffffff 0xffffffffffffffff n
+afb+ 0x0049d2f0 0x0049d4f7 11 0x0049d5bb 0x0049d502 n
+afb+ 0x0049d2f0 0x0049d502 99 0xffffffffffffffff 0xffffffffffffffff n
+afb+ 0x0049d2f0 0x0049d565 5 0x0049d5bb 0x0049d56a n
+afb+ 0x0049d2f0 0x0049d56a 14 0x0049d583 0x0049d578 n
+afb+ 0x0049d2f0 0x0049d578 11 0x0049d583 0xffffffffffffffff n
+afb+ 0x0049d2f0 0x0049d583 7 0x0049d5a7 0x0049d58a n
+afb+ 0x0049d2f0 0x0049d58a 29 0xffffffffffffffff 0xffffffffffffffff n
+afb+ 0x0049d2f0 0x0049d5a7 6 0x0049d5b3 0x0049d5ad n
+afb+ 0x0049d2f0 0x0049d5ad 6 0x0049d5bb 0x0049d5b3 n
+afb+ 0x0049d2f0 0x0049d5b3 8 0x0049d5bb 0xffffffffffffffff n
+afb+ 0x0049d2f0 0x0049d5bb 18 0xffffffffffffffff 0xffffffffffffffff n
+afb+ 0x0049d2f0 0x0049d5cd 15 0xffffffffffffffff 0xffffffffffffffff n
+afS 1076 @ 0x49d2f0
 "f sub.USER32.dll_GetDlgItem_5e0 79 0x0049d5e0"
 "af+ 0x0049d5e0 sub.USER32.dll_GetDlgItem_5e0 f n"
 afc amd64 @ 0x0049d5e0
@@ -115137,4 +115354,4 @@ tk func.SetFormW.args=4
 tk SetPortA=func
 # macros
 # seek
-s 0x0049d0bf
+s 0x0047c4b0
