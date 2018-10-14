@@ -3078,7 +3078,7 @@ f File_Open 362 0x0047f6e0
 f isFileInWadHelper 107 0x0047fe30 
 f transformFilePath 132 0x0047ffc0 
 f debugPrintf 50 0x0047f600 
-f sprintf2 104 0x0048e1e0 
+f vsprintf 104 0x0048e1e0 
 f makeFileData 88 0x0047fed0 
 f deleteFileData 14 0x0047ff40 
 f fopen 21 0x0048eb90 
@@ -3119,7 +3119,7 @@ f fcn.004939d0 37 0x004939d0
 f fcn.00456210 3 0x00456210 
 f fcn.004939a0 38 0x004939a0 
 f fcn.00493150 21 0x00493150 
-f Weird::SetXYMaybe 19 0x004851b0 
+f TextBox::SetXY 19 0x004851b0 
 f fcn.0040e990 38 0x0040e990 
 f fcn.0040e9c0 66 0x0040e9c0 
 f fcn.0040ee50 340 0x0040ee50 
@@ -3165,7 +3165,7 @@ f File_Read 200 0x0047f980
 f fread 316 0x0048fb90 
 f getResIDataWrapper 14 0x0048c030 
 f getResIData 27 0x0048bff0 
-f fcn.00485230 26 0x00485230 
+f TextBox::printfEZ 26 0x00485230 
 f fcn.00417e70 23 0x00417e70 
 f fcn.00417e50 32 0x00417e50 
 f fcn.0045cc60 6 0x0045cc60 
@@ -3236,8 +3236,8 @@ f sub.LevelLinks_90 300 0x00417090
 f fcn.00416e20 65 0x00416e20 
 f fcn.004105f0 153 0x004105f0 
 f sub.Levels_9b0 210 0x004179b0 
-f makeWeird 105 0x004850f0 
-f setWeirdFlag0x4 38 0x00485160 
+f TextBoxNew 105 0x004850f0 
+f TextBox::setFlag0x4 38 0x00485160 
 f fcn.00464ef0 99 0x00464ef0 
 f fcn.00465160 34 0x00465160 
 f fcn.0047b8e0 131 0x0047b8e0 
@@ -3415,7 +3415,7 @@ f optionBitsSet_nm_if_ftm 20 0x00477bd0
 f setupTextData 352 0x0046a7f0 
 f setupMessagePanelData 136 0x0046a950 
 f setWeird1RectMaybe 168 0x0046a9e0 
-f Weird::SetWHMaybe 51 0x004851d0 
+f TextBox::SetWH 51 0x004851d0 
 f fcn.00402210 14 0x00402210 
 f sub.FrontEnd_d00 65 0x00416d00 
 f sub.DontPlayAvis_ce0 65 0x00414ce0 
@@ -3557,7 +3557,7 @@ f fcn.00477220 28 0x00477220
 f fcn.00435dc8 70 0x00435dc8 
 f fcn.0046c0f0 17 0x0046c0f0 
 f fcn.00408940 46 0x00408940 
-f fcn.00485190 28 0x00485190 
+f TextBoxDelete 28 0x00485190 
 f fcn.0047a550 36 0x0047a550 
 f fcn.0047a800 77 0x0047a800 
 f exitMaybe 18 0x0048e4b0 
@@ -4016,7 +4016,7 @@ f sub.USER32.dll_ClientToScreen_d0 88 0x0047f0d0
 f fcn.00407360 6 0x00407360 
 f fcn.00459050 172 0x00459050 
 f fcn.00462800 39 0x00462800 
-f fcn.00485210 29 0x00485210 
+f TextBox::printf 29 0x00485210 
 f fcn.0045bf20 72 0x0045bf20 
 f fcn.0045bcd0 583 0x0045bcd0 
 f fcn.0045b8a0 93 0x0045b8a0 
@@ -6989,7 +6989,7 @@ f sub.KERNEL32.dll_CloseHandle_d10 210 0x00494d10
 f fseek 150 0x0048f460 
 f sub.KERNEL32.dll_ReadFile_130 596 0x00497130 
 f fcn.0047fce0 83 0x0047fce0 
-f fcn.00485250 165 0x00485250 
+f TextBox::vprintf 165 0x00485250 
 f fcn.004931c0 188 0x004931c0 
 f fcn.00485390 890 0x00485390 
 f fcn.004248b0 1084 0x004248b0 
@@ -7040,7 +7040,7 @@ f fcn.00413b50 34 0x00413b50
 f fcn.0047c8f0 803 0x0047c8f0 
 f sub.WINMM.dll_timeGetTime_b80 658 0x00413b80 
 f sub..avi_f30 95 0x00413f30 
-f fcn.00413f00 41 0x00413f00 
+f strReplace 41 0x00413f00 
 f fcn.00411260 115 0x00411260 
 f fcn.00414010 82 0x00414010 
 f fcn.00410e20 268 0x00410e20 
@@ -8526,6 +8526,10 @@ CCu base64:c3dpdGNoIHRhYmxlICg3IGNhc2VzKSBhdCAweDQxMWVjOA== @ 0x00411aea
 CCu base64:c3dpdGNoIHRhYmxlICg1IGNhc2VzKSBhdCAweDQxMWVlNA== @ 0x00411cf5
 CCu base64:c3dpdGNoIHRhYmxlICg3IGNhc2VzKSBhdCAweDQxMzkzOA== @ 0x00412f27
 CCu base64:c3dpdGNoIHRhYmxlICg3IGNhc2VzKSBhdCAweDQxMzk1NA== @ 0x00413333
+CCu base64:Y2hhciogc3RyUmVwbGFjZShjaGFyKiBzdHIsIGNoYXIgdG9SZXBsYWNlLCBjaGFyIG5ld0NoYXIpIHJlcGxhY2VzIGFsbCBvY2N1cmVuY2VzIG9mIHRvUmVwbGFjZSBpbiBzdHIgd2l0aCBuZXdDaGFyLiByZXR1cm5zIHN0cg== @ 0x00413f00
+CCu base64:YWJvdmU6IGFyZzE6IHN0cg== @ 0x00413f04
+CCu base64:YXJnMzogY2hhciBuZXdDaGFy @ 0x00413f0d
+CCu base64:YXJnMjogY2hhciB0b1JlcGxhY2U= @ 0x00413f12
 CCu base64:SGVhcEhhbmRsZSBoSGVhcA== @ 0x004144ca
 CCu base64:c3dpdGNoIHRhYmxlICg2IGNhc2VzKSBhdCAweDQxNGM3MA== @ 0x004147e4
 CCu base64:c3dpdGNoIHRhYmxlICg2IGNhc2VzKSBhdCAweDQxNGY3NA== @ 0x00414f29
@@ -8645,6 +8649,11 @@ CCu base64:MjAuZg== @ 0x004201d7
 CCu base64:WzU1LCAzNjMsIDMyNSwgMTQwXQ== @ 0x004201df
 CCu base64:WzU1LCA0MzUsIDMyNSwgNDJd @ 0x004201e3
 CCu base64:am1wIGlmICFzaG93VmVyc2lvbiBiaXQ= @ 0x0042020b
+CCu base64:c3RvcmUgIk1haW46OlN0YXJ0TWVzc2FnZSIgdmFsdWU= @ 0x00420238
+CCu base64:c3RvcmUgIk1haW46OlZlcnNpb24iIHZhbHVl @ 0x00420263
+CCu base64:d2hpdGVzcGFjZSBjaGFy @ 0x0042026c
+CCu base64:Ik1haW46OlN0YXJ0TWVzc2FnZSIgdmFsdWU= @ 0x00420273
+CCu base64:c3RvcmUgIk1haW46OlN0YXJ0TWVzc2FnZSIgdmFsdWUgd2l0aCB1bmRlcnNjb3JlcyBjaGFuZ2VkIHRvIHdoaXRlc3BhY2U= @ 0x0042027c
 CCu base64:c2V0IGFzIHRoZSBnYW1lRW5kIGZ1bmN0aW9uIGlmIHByb2dyYW1tZXIgYml0cyA9PSAweGE= @ 0x00424d00
 CCu base64:am1wIGlmIChhcmcgPj0gKjB4NTU2MTVjKQ== @ 0x00425cef
 CCu base64:aWYgKGFyZyA8ICoweDU1NjE1YyAmJiAqMHg0ZGU1NDggPT0gdHJ1ZSkgcmV0dXJuOw== @ 0x00425cf8
@@ -9914,7 +9923,7 @@ CCu base64:c3dpdGNoIHRhYmxlICg4IGNhc2VzKSBhdCAweDQ4NDZlYw== @ 0x0048466b
 CCu base64:TFBWT0lEIGxwTWVt @ 0x004847d6
 CCu base64:SGVhcEFsbG9jYXRpb25Db250cm9sIGR3RmxhZ3M= @ 0x004847d7
 CCu base64:SGVhcEhhbmRsZSBoSGVhcA== @ 0x004847df
-CCu base64:V2VpcmQqIG1ha2VXZWlyZChCaWcqLCBmbG9hdCogZm91ckZsb2F0cywgaW50IGlubmVyQnVmU2l6ZSkgcmV0dXJucyBhIHN0cnVjdCBXZWlyZCwgd2l0aCBmbGFnIDB4NCBzZXQsIGZvdXJGbG9hdHMgYW5kIEJpZyogY29waWVkIGluLCBhbmQgYW4gaW5uZXIgYnVmIG9mIHRoZSBnaXZlbiBzaXplLiByZXR1cm5zIE5VTEwgb24gZmFpbHVyZQ0Kc3RydWN0IFdlaXJkIHsNCgkwOiBCaWcqDQoJNDogZmxvYXQgYXJnMkNvcHlbNF0gOyBwcm9iYWJseSBhIHJlY3Q6IHsgeCwgeSwgdywgaCB9DQoJMTQ6IG1hbGxvYyBidWYNCg0KCTQxODogbWFsbG9jIGJ1ZiBzaXplDQoNCgk4MmM6IGZsYWdzLiBmbGFnIDB4NCA9ID8NCn0gc2l6ZSA9IDIwOTY= @ 0x004850f0
+CCu base64:VGV4dEJveCogVGV4dEJveE5ldyhCaWcqLCBmbG9hdCogZm91ckZsb2F0cywgaW50IGlubmVyQnVmU2l6ZSkgcmV0dXJucyBhIHN0cnVjdCBUZXh0Qm94Kiwgd2l0aCBmbGFnIDB4NCBzZXQsIGZvdXJGbG9hdHMgYW5kIEJpZyogY29waWVkIGluLCBhbmQgYW4gaW5uZXIgYnVmIG9mIHRoZSBnaXZlbiBzaXplLiByZXR1cm5zIE5VTEwgb24gZmFpbHVyZQ0Kc3RydWN0IFRleHRCb3ggew0KCTA6IEJpZyoNCgk0OiByZWN0RGltZW5zaW9uczsgUmVjdDQgb2YgZmxvYXRzIHsgeCwgeSwgdywgaCB9DQoJMTQ6IGNoYXIqIHRleHQ7IG1hbGxvY2VkIGJ1ZiBmb3IgdGV4dCBib3ggdGV4dA0KDQoJNDE4OiB0ZXh0QnVmU2l6ZSAoaW4gYnl0ZXMpDQoJNDFjOiBuZXh0Q2hhcklkeDsgd2hlcmUgdG8gcHV0IHRoZSBuZXh0IGNoYXIgYWRkZWQgdG8gdGhlIHRleHQgYnVmDQoNCgk4MmM6IGZsYWdzLiBmbGFnIDB4NCA9ID8sIHNldCB0byB0cnVlIHdoZW4gaXQgaXMgbWFkZTsgMHgxID09IHRleHQgYnVmIHdyYXBhcm91bmQ/DQp9IHNpemUgPSAyMDk2 @ 0x004850f0
 CCu base64:YXJnMjogZmxvYXQgYXJy @ 0x00485104
 CCu base64:emVybyBtYWxsb2NlZCBidWY= @ 0x00485112
 CCu base64:YXJnMTogQmlnKg== @ 0x00485114
@@ -9925,15 +9934,44 @@ CCu base64:YXJnMw== @ 0x00485128
 CCu base64:cmVzLT5vZmY4ID0gYXJnMlsxXQ== @ 0x00485129
 CCu base64:cmVzLT5vZmZjID0gYXJnMlsyXQ== @ 0x0048512f
 CCu base64:cmVzLT5vZmYxMCA9IGFyZzJbM10= @ 0x00485135
-CCu base64:c2V0V2VpcmRGbGFnMHg0KFdlaXJkKiwgYm9vbCBzZXRPbikgc2V0cyBmbGFnIDB4NCBvZiB0aGUgZ2l2ZW4gd2VpcmQ= @ 0x00485160
-CCu base64:SGVhcEFsbG9jYXRpb25Db250cm9sIGR3RmxhZ3M= @ 0x00485190
-CCu base64:SGVhcEhhbmRsZSBoSGVhcA== @ 0x00485198
-CCu base64:SGVhcEhhbmRsZSBoSGVhcA== @ 0x004851a1
-CCu base64:V2VpcmQ6OnNldFhZKGludCBudW0xLCBpbnQgbnVtMikgc2V0cyB3ZWlyZC0+b2ZmMHg0ID0gKGZsb2F0KW51bTEsIHdlaXJkLT5vZmYweDggPSAoZmxvYXQpbnVtMg== @ 0x004851b0
-CCu base64:V2VpcmQ6OmYoaW50IHcsIGludCBoKSBzZXRzIHdlaXJkLT5vZmYweGMgPSAoZmxvYXQpdywgd2VpcmQtPm9mZjB4MTAgPSAoZmxvYXQpaA== @ 0x004851d0
+CCu base64:dm9pZCBUZXh0Qm94OjpzZXRGbGFnMHg0KFRleHRCb3gqLCBib29sIHNldE9uKSBzZXRzIGZsYWcgMHg0IG9mIHRoZSBnaXZlbiBUZXh0Qm94 @ 0x00485160
+CCu base64:dm9pZCBUZXh0Qm94OjpzZXRYWShpbnQgbnVtMSwgaW50IG51bTIpIHNldHMgVGV4dEJveC0+cmVjdC54ID0gKGZsb2F0KW51bTEsIFRleHRCb3gtPnJlY3QueSA9IChmbG9hdCludW0y @ 0x004851b0
+CCu base64:dm9pZCBUZXh0Qm94OjpTZXRXSChpbnQgdywgaW50IGgpIHNldHMgVGV4dEJveC0+cmVjdCB3aWR0aCBhbmQgaGVpZ2h0 @ 0x004851d0
 CCu base64:YXJnMjogaW50 @ 0x004851d3
 CCu base64:YXJnMzogaW50 @ 0x004851d7
 CCu base64:YXJnMTogV2VpcmQq @ 0x004851e1
+CCu base64:dm9pZCBUZXh0Qm94OjpwcmludGYoVGV4dEJveCosIGludCBzdGFydENodW5rLCBjaGFyKiBmb3JtYXQsIHZhcmFyZ3MuLi4pIGNhbGxzIFRleHRCb3g6OnZwcmludGYsIGNvbnZlcnRpbmcgdmFyYXJncyBwcm9wZXJseQ== @ 0x00485210
+CCu base64:dm9pZCBUZXh0Qm94OjpwcmludGZFWihUZXh0Qm94KiwgY2hhciogZm9ybWF0LCB2YXJhcmdzLi4uKSBjb252ZXJ0cyB2YXJhcmdzIGFuZCBjYWxscyBUZXh0Qm94Ojp2cHJpbnRmIHdpdGggc3RhcnQgY2h1bmsgMCAoaS5lLiwgY29weSB0aGUgZW50aXJlIHByaW50ZidlZCBzdHJpbmcp @ 0x00485230
+CCu base64:b3V0cHV0IGJ1ZiBvciBXZWlyZCo= @ 0x00485234
+CCu base64:JmFyZzM6ICZmaXJzdCB2YXJhcmcgPSB2YXIgYXJncyBhcnI= @ 0x00485238
+CCu base64:dmFyYXJncyBhcnI= @ 0x0048523c
+CCu base64:Zm9ybWF0IHN0cg== @ 0x0048523d
+CCu base64:b3V0cHV0IGJ1ZiBvciBXZWlyZCo= @ 0x00485240
+CCu base64:dm9pZCBUZXh0Qm94OjpwcmludGYoVGV4dEJveCogdGhpcywgaW50IGNodW5rU3RhcnQsIGNoYXIqIGZvcm1hdCwgdmFybGlzdCB2YXJhcmdzKSBkb2VzIHByaW50ZiB3aXRoIHRoZSBnaXZlbiBmb3JtYXQgYW5kIHZhcmFyZ3MuIFRoZW4sIHRyaWVzIHRvIGFkZCB0aGUgcmVzdWx0aW5nIHN0cmluZyB0byB0aGlzIFRleHRCb3gncyB0ZXh0IGJ1ZmZlci4gQ29weWluZyBzdGFydHMgZnJvbSB0aGUgY2h1bmtTdGFydCBjaHVuaywgd2hlcmUgY2h1bmtzIGFyZSBkZWxpbWl0ZWQgYnkgdGhlIGJlbGwgY2hhcmFjdGVyLiBJZiB0aGUgc3RyaW5nIGlzIHRvbyBiaWcgdG8gZml0IGluIHRoZSBidWZmZXIsIHRoZSBidWZmZXIgd3JhcHNhcm91bmQgYW5kIHRoZSAweDEgZmxhZyBpcyBzZXQu @ 0x00485250
+CCu base64:YXJnMzogZm9ybWF0IHN0cg== @ 0x00485254
+CCu base64:YWJvdmU6IGFyZzQ6IHZhcmFyZ3MgYXJy @ 0x00485258
+CCu base64:YXJnNDogdmFyYXJncyBhcnI= @ 0x00485266
+CCu base64:YXJnMzogZm9ybWF0IHN0cg== @ 0x00485267
+CCu base64:JnN0YWNrQnVm @ 0x00485268
+CCu base64:YmVsbCBjaGFyIGNvdW50ID0gMA== @ 0x00485269
+CCu base64:bG9vcCBpID0gMA== @ 0x00485275
+CCu base64:ZWRpID0gcHJpbnRmIGJ5dGVzIHdyaXR0ZW4= @ 0x00485277
+CCu base64:YXJnMjogdXN1YWxseSAw @ 0x0048527b
+CCu base64:Zm9yIChpbnQgaSA9IDA7IGkgPCBieXRlc1dyaXR0ZW47IGkrKykgew== @ 0x00485284
+CCu base64:aWYgKGVzaSA9PSBhcmcyKSBicmVhazs= @ 0x00485286
+CCu base64:aWYgKHN0YWNrQnVmW2ldID09IDcpIGVzaSsr @ 0x0048528e
+CCu base64:ZW5kIGZvciBsb29w @ 0x00485292
+CCu base64:ZWR4ID0gbG9vcCBpLCBlZGkgPSB2c3ByaW50ZiBjaGFycyB3cml0dGVu @ 0x00485294
+CCu base64:am1wIGlmIGxvb3AgdGVybWluYXRlZCBuYXR1cmFsbHkgKG51bSBvZiBiZWxsIGNoYXJzIGluIGZvcm1hdCBzdHIgPCBhcmcyKQ== @ 0x00485296
+CCu base64:YXJnMTogV2VpcmQq @ 0x0048529a
+CCu base64:d2VpcmQtPmJ1ZjB4MTQ= @ 0x004852a6
+CCu base64:d2VpcmQtPm9mZjB4NDFj @ 0x004852a9
+CCu base64:c3RhY2tidWZbbG9vcEld @ 0x004852af
+CCu base64:d2VpcmQtPmJ1ZjB4MTRbd2VpcmQtPm9mZjB4NDFjXSA9IHN0YWNrYnVmW2xvb3BpXQ== @ 0x004852b3
+CCu base64:d2VpcmQtPmJ1ZjB4MTRMZW4= @ 0x004852bc
+CCu base64:d2VpcmQtPm5leHRDaGFySWR4Kys= @ 0x004852c5
+CCu base64:aWYgKHdlaXJkLT5uZXh0Q2hhcklkeCA+PSB3ZWlyZC0+YnVmU2l6ZSkgc2V0IGZsYWcgMHgxLCB3cmFwYXJvdW5kIG5leHQgaWR4IHRvIDA= @ 0x004852cd
+CCu base64:YXJnMQ== @ 0x0048532e
 CCu base64:SGVhcEFsbG9jYXRpb25Db250cm9sIGR3RmxhZ3M= @ 0x00486da6
 CCu base64:SGVhcEhhbmRsZSBoSGVhcA== @ 0x00486da7
 CCu base64:SGVhcEFsbG9jYXRpb25Db250cm9sIGR3RmxhZ3M= @ 0x00486dbb
@@ -10187,6 +10225,7 @@ CCu base64:c2V0IDB4YzAwIGkuZS4gcm91bmRpbmcgY29udHJvbCA9IHRydW5jYXRl @ 0x0048e06f
 CCu base64:bG9hZCB0cnVuY2F0ZSBjb250cm9sIHdvcmQ= @ 0x0048e076
 CCu base64:c3RvcmUgc3QoMCkgYXMgaW50IHJvdW5kZWQgdG93YXJkcyAw @ 0x0048e079
 CCu base64:cmVzdG9yZSBvbGQgcm91bmRpbmcgY29udHJvbCB2YWw= @ 0x0048e07c
+CCu base64:cG9zaXgvd2luMzIgc3RyaW5nLmggZnVuY3Rpb24sIGxpa2UgcHJpbnRmIGJ1dCB0YWtlcyBhIHZhcmxpc3QgKGFyciBwdHIp @ 0x0048e1e0
 CCu base64:YXJnMTogb3V0cHV0IGJ1Zg== @ 0x0048e1e3
 CCu base64:YXJnMjogZm9ybWF0IHN0cg== @ 0x0048e1e7
 CCu base64:YXJnMzogdmFyYXJnIGFyciBwdHI= @ 0x0048e1f3
@@ -10275,9 +10314,6 @@ CCu base64:cmV0dXJuIGJ1ZmZlciB3aXRoIGZ1bGwgZmlsZSBwYXRo @ 0x00490048
 CCu base64:YXJnMzogb3V0cHV0IGJ1ZiBsZW4= @ 0x0049004f
 CCu base64:YXJnMTogb3V0cHV0IGJ1Zg== @ 0x00490053
 CCu base64:aWYgbm8gZmlsZSBpcyBzcGVjaWZpZWQsIGp1c3QgcmV0dXJuIHByb2Nlc3MgcGF0aA== @ 0x00490059
-CCu base64:RFdPUkQgbk51bWJlck9mQnl0ZXNUb1dyaXRl @ 0x00490933
-CCu base64:TFBDVk9JRCBscEJ1ZmZlcg== @ 0x00490934
-CCu base64:SEFORExFIGhGaWxl @ 0x00490935
 CCu base64:UExPTkcgbHBEaXN0YW5jZVRvTW92ZUhpZ2g= @ 0x00490971
 CCu base64:TE9ORyBsRGlzdGFuY2VUb01vdmU= @ 0x00490973
 CCu base64:SEFORExFIGhGaWxl @ 0x00490974
@@ -63305,8 +63341,8 @@ afb+ 0x00413e60 0x00413ed6 7 0xffffffffffffffff 0xffffffffffffffff n
 afb+ 0x00413e60 0x00413edd 25 0xffffffffffffffff 0xffffffffffffffff n
 afvs 8 arg_8h int @ 0x413e60
 afS 12 @ 0x413e60
-"f fcn.00413f00 41 0x00413f00"
-"af+ 0x00413f00 fcn.00413f00 f n"
+"f strReplace 41 0x00413f00"
+"af+ 0x00413f00 strReplace f n"
 afc amd64 @ 0x00413f00
 afb+ 0x00413f00 0x00413f00 13 0x00413f25 0x00413f0d n
 afb+ 0x00413f00 0x00413f0d 9 0x00413f16 0xffffffffffffffff b
@@ -63315,8 +63351,6 @@ afb+ 0x00413f00 0x00413f1a 2 0x00413f1c 0xffffffffffffffff n
 afb+ 0x00413f00 0x00413f1c 8 0x00413f16 0x00413f24 n
 afb+ 0x00413f00 0x00413f24 1 0x00413f25 0xffffffffffffffff n
 afb+ 0x00413f00 0x00413f25 4 0xffffffffffffffff 0xffffffffffffffff n
-afvs 4 arg_4h int @ 0x413f00
-afvs 16 arg_10h int @ 0x413f00
 afS 4 @ 0x413f00
 "f sub..avi_f30 95 0x00413f30"
 "af+ 0x00413f30 sub..avi_f30 f n"
@@ -67059,8 +67093,11 @@ afb+ 0x0041fb50 0x004218bf 45 0x004218f8 0x004218ec n
 afb+ 0x0041fb50 0x0042280c 12 0x00422818 0xffffffffffffffff n
 afb+ 0x0041fb50 0x00422818 5 0x0042281d 0xffffffffffffffff n
 afb+ 0x0041fb50 0x0042281d 6 0xffffffffffffffff 0xffffffffffffffff n
+afvb -128 cfg.Main.StartMessage char * @ 0x41fb50
+afvb -124 cfg.Main.Version char * @ 0x41fb50
 afvb -48 totalTexMem int @ 0x41fb50
 afvb -44 freeTexMem int @ 0x41fb50
+afvb -16 configList Config * @ 0x41fb50
 afS 732 @ 0x41fb50
 "f sub.Boulder_850 2090 0x00422850"
 "af+ 0x00422850 sub.Boulder_850 f n"
@@ -81403,36 +81440,6 @@ afb+ 0x004574e0 0x00457ce3 8 0x00457d26 0x00457ceb n
 afb+ 0x004574e0 0x00457ceb 17 0x00457cfc 0xffffffffffffffff b
 afb+ 0x004574e0 0x00457cfc 42 0x00457cfc 0x00457d26 n
 afb+ 0x004574e0 0x00457d26 11 0xffffffffffffffff 0xffffffffffffffff n
-afvs 16 local_10h int @ 0x4574e0
-afvs 20 local_14h int @ 0x4574e0
-afvs 24 local_18h unsigned int @ 0x4574e0
-afvs 28 local_1ch int @ 0x4574e0
-afvs 36 local_24h int @ 0x4574e0
-afvs 44 local_2ch unsigned int @ 0x4574e0
-afvs 48 local_30h unsigned int @ 0x4574e0
-afvs 52 local_34h int @ 0x4574e0
-afvs 56 local_38h int @ 0x4574e0
-afvs 60 local_3ch int @ 0x4574e0
-afvs 64 local_40h int @ 0x4574e0
-afvs 68 local_44h int @ 0x4574e0
-afvs 72 local_48h int @ 0x4574e0
-afvs 76 local_4ch int @ 0x4574e0
-afvs 84 local_54h int @ 0x4574e0
-afvs 88 local_58h int @ 0x4574e0
-afvs 92 local_5ch int @ 0x4574e0
-afvs 96 local_60h int @ 0x4574e0
-afvs 216 local_d8h int @ 0x4574e0
-afvs 220 local_dch int @ 0x4574e0
-afvs 224 local_e0h int @ 0x4574e0
-afvs 228 local_e4h int @ 0x4574e0
-afvs 1240 local_4d8h int @ 0x4574e0
-afvs 2264 local_8d8h int @ 0x4574e0
-afvs 2268 local_8dch int @ 0x4574e0
-afvs 3288 arg_cd8h int @ 0x4574e0
-afvs 3292 arg_cdch int @ 0x4574e0
-afvs 3296 local_ce0h int @ 0x4574e0
-afvs 3308 arg_cech int @ 0x4574e0
-afvs 3312 arg_cf0h int @ 0x4574e0
 afS 3304 @ 0x4574e0
 "f sub.DontShowObjectiveAdvisor_d40 2110 0x00457d40"
 "af+ 0x00457d40 sub.DontShowObjectiveAdvisor_d40 f n"
@@ -95289,54 +95296,47 @@ afc amd64 @ 0x004850e0
 afb+ 0x004850e0 0x004850e0 8 0xffffffffffffffff 0xffffffffffffffff n
 afvs 4 arg_4h int @ 0x4850e0
 afS 0 @ 0x4850e0
-"f makeWeird 105 0x004850f0"
-"af+ 0x004850f0 makeWeird f n"
+"f TextBoxNew 105 0x004850f0"
+"af+ 0x004850f0 TextBoxNew f n"
 afc amd64 @ 0x004850f0
 afb+ 0x004850f0 0x004850f0 20 0x00485155 0x00485104 n
 afb+ 0x004850f0 0x00485104 81 0x00485155 0xffffffffffffffff n
 afb+ 0x004850f0 0x00485155 4 0xffffffffffffffff 0xffffffffffffffff n
 afS 8 @ 0x4850f0
-"f setWeirdFlag0x4 38 0x00485160"
-"af+ 0x00485160 setWeirdFlag0x4 f n"
+"f TextBox::setFlag0x4 38 0x00485160"
+"af+ 0x00485160 TextBox::setFlag0x4 f n"
 afc amd64 @ 0x00485160
 afb+ 0x00485160 0x00485160 18 0x0048517c 0x00485172 n
 afb+ 0x00485160 0x00485172 10 0xffffffffffffffff 0xffffffffffffffff n
 afb+ 0x00485160 0x0048517c 10 0xffffffffffffffff 0xffffffffffffffff n
 afS 0 @ 0x485160
-"f fcn.00485190 28 0x00485190"
-"af+ 0x00485190 fcn.00485190 f n"
+"f TextBoxDelete 28 0x00485190"
+"af+ 0x00485190 TextBoxDelete f n"
 afc amd64 @ 0x00485190
 afb+ 0x00485190 0x00485190 28 0xffffffffffffffff 0xffffffffffffffff n
-afvs 8 arg_8h int @ 0x485190
 afS 8 @ 0x485190
-"f Weird::SetXYMaybe 19 0x004851b0"
-"af+ 0x004851b0 Weird::SetXYMaybe f n"
+"f TextBox::SetXY 19 0x004851b0"
+"af+ 0x004851b0 TextBox::SetXY f n"
 afc amd64 @ 0x004851b0
 afb+ 0x004851b0 0x004851b0 19 0xffffffffffffffff 0xffffffffffffffff n
 afS 0 @ 0x4851b0
-"f Weird::SetWHMaybe 51 0x004851d0"
-"af+ 0x004851d0 Weird::SetWHMaybe f n"
+"f TextBox::SetWH 51 0x004851d0"
+"af+ 0x004851d0 TextBox::SetWH f n"
 afc amd64 @ 0x004851d0
 afb+ 0x004851d0 0x004851d0 51 0xffffffffffffffff 0xffffffffffffffff n
 afS 8 @ 0x4851d0
-"f fcn.00485210 29 0x00485210"
-"af+ 0x00485210 fcn.00485210 f n"
+"f TextBox::printf 29 0x00485210"
+"af+ 0x00485210 TextBox::printf f n"
 afc amd64 @ 0x00485210
 afb+ 0x00485210 0x00485210 29 0xffffffffffffffff 0xffffffffffffffff n
-afvs 8 arg_8h int @ 0x485210
-afvs 12 arg_ch int @ 0x485210
-afvs 16 arg_10h int @ 0x485210
 afS 16 @ 0x485210
-"f fcn.00485230 26 0x00485230"
-"af+ 0x00485230 fcn.00485230 f n"
+"f TextBox::printfEZ 26 0x00485230"
+"af+ 0x00485230 TextBox::printfEZ f n"
 afc amd64 @ 0x00485230
 afb+ 0x00485230 0x00485230 26 0xffffffffffffffff 0xffffffffffffffff n
-afvs 4 arg_4h int @ 0x485230
-afvs 8 arg_8h int @ 0x485230
-afvs 12 arg_ch int @ 0x485230
 afS 16 @ 0x485230
-"f fcn.00485250 165 0x00485250"
-"af+ 0x00485250 fcn.00485250 f n"
+"f TextBox::vprintf 165 0x00485250"
+"af+ 0x00485250 TextBox::vprintf f n"
 afc amd64 @ 0x00485250
 afb+ 0x00485250 0x00485250 43 0x00485294 0x0048527b n
 afb+ 0x00485250 0x0048527b 9 0x00485284 0xffffffffffffffff b
@@ -95351,10 +95351,6 @@ afb+ 0x00485250 0x004852a6 39 0x004852e5 0x004852cd n
 afb+ 0x00485250 0x004852cd 24 0x004852e5 0xffffffffffffffff n
 afb+ 0x00485250 0x004852e5 5 0x004852a6 0x004852ea n
 afb+ 0x00485250 0x004852ea 11 0xffffffffffffffff 0xffffffffffffffff n
-afvs 12 arg_ch int @ 0x485250
-afvs 16 arg_10h int @ 0x485250
-afvs 1044 local_414h int @ 0x485250
-afvs 1048 local_418h int @ 0x485250
 afS 1052 @ 0x485250
 "f fcn.00485300 135 0x00485300"
 "af+ 0x00485300 fcn.00485300 f n"
@@ -95363,10 +95359,6 @@ afb+ 0x00485300 0x00485300 89 0x00485365 0x00485359 n
 afb+ 0x00485300 0x00485359 12 0x0048536f 0xffffffffffffffff n
 afb+ 0x00485300 0x00485365 10 0x0048536f 0xffffffffffffffff b
 afb+ 0x00485300 0x0048536f 24 0xffffffffffffffff 0xffffffffffffffff n
-afvs 12 arg_ch int @ 0x485300
-afvs 24 local_18h int @ 0x485300
-afvs 1040 local_410h int @ 0x485300
-afvs 1044 local_414h int @ 0x485300
 afS 1048 @ 0x485300
 "f fcn.00485390 890 0x00485390"
 "af+ 0x00485390 fcn.00485390 f n"
@@ -98255,8 +98247,8 @@ afb+ 0x0048e1aa 0x00492170 27 0x0049219f 0x0049218b n
 afb+ 0x0048e1aa 0x0049218b 20 0xffffffffffffffff 0xffffffffffffffff n
 afb+ 0x0048e1aa 0x0049219f 15 0x0049218b 0xffffffffffffffff n
 afS 8 @ 0x48e1aa
-"f sprintf2 104 0x0048e1e0"
-"af+ 0x0048e1e0 sprintf2 f n"
+"f vsprintf 104 0x0048e1e0"
+"af+ 0x0048e1e0 vsprintf f n"
 afc amd64 @ 0x0048e1e0
 afb+ 0x0048e1e0 0x0048e1e0 68 0x0048e232 0x0048e224 n
 afb+ 0x0048e1e0 0x0048e224 14 0xffffffffffffffff 0xffffffffffffffff n
@@ -99382,8 +99374,6 @@ afb+ 0x004908a0 0x0049099e 4 0x004909b2 0x004909a2 n
 afb+ 0x004908a0 0x004909a2 16 0xffffffffffffffff 0xffffffffffffffff n
 afb+ 0x004908a0 0x004909b2 14 0xffffffffffffffff 0xffffffffffffffff n
 afb+ 0x004908a0 0x004909c0 13 0xffffffffffffffff 0xffffffffffffffff n
-afvs 20 lpBuffer LPCVOID @ 0x4908a0
-afvs 32 arg_20h int @ 0x4908a0
 afS 16 @ 0x4908a0
 "f maybe_sprintfImpl 2172 0x004909d0"
 "af+ 0x004909d0 maybe_sprintfImpl f n"
@@ -101758,17 +101748,6 @@ afb+ 0x00496cc0 0x00496e8f 15 0x00496de5 0xffffffffffffffff n
 afb+ 0x00496cc0 0x00496e9e 28 0x00496ecf 0x00496eba n
 afb+ 0x00496cc0 0x00496eba 21 0x00496de9 0xffffffffffffffff n
 afb+ 0x00496cc0 0x00496ecf 15 0x00496de9 0xffffffffffffffff n
-afvs 4 arg_4h int @ 0x496cc0
-afvs 16 local_10h int @ 0x496cc0
-afvs 20 local_14h int @ 0x496cc0
-afvs 24 local_18h int @ 0x496cc0
-afvs 28 local_1ch int @ 0x496cc0
-afvs 32 local_20h int @ 0x496cc0
-afvs 36 local_24h int @ 0x496cc0
-afvs 40 local_28h int @ 0x496cc0
-afvs 48 local_30h int @ 0x496cc0
-afvs 1076 arg_434h int @ 0x496cc0
-afvs 1080 arg_438h int @ 0x496cc0
 afS 1068 @ 0x496cc0
 "f setErrCodeWin32Param 103 0x00496ee0"
 "af+ 0x00496ee0 setErrCodeWin32Param f n"
@@ -116138,4 +116117,4 @@ tk func.SetFormW.args=4
 tk SetPortA=func
 # macros
 # seek
-s 0x004201f5
+s 0x00485250
