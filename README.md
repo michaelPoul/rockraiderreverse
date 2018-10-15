@@ -2,12 +2,16 @@
 A WIP C++ reimplementation/reverse engineering of the 1999 video game Lego Rock Raiders.
 
 ### Reverse engineering
-The reverse engineering is being done in radare2. The radare2 proj file can be found in the repo at "Rock/rc"
+The reverse engineering is being done in radare2. The radare2 proj file can be found in the repo at "Rock/rc".
 Currently, all reverse engineering information (like function names, global variables, struct layouts, etc.) is stored in the project file.
 
-If you have the original game executable, you can open the project file from a cmd line with `radare2 -p [ABSOLUTE path to Rock/rc file] [path to LegoRR.exe]`
+If you have the original game executable, you can open the project file from a cmd line with
 
-In the more likely case that you don't have the original executable, the project file can be opened with `radare2 -p [ABSOLUTE path to Rock/rc file] -`
+`radare2 -p [ABSOLUTE path to Rock/rc file] [path to LegoRR.exe]`
+
+In the more likely case that you don't have the original executable, the project file can be opened with
+
+`radare2 -p [ABSOLUTE path to Rock/rc file] -`
 
 Once opened, all comments/flag names can be examined. Here are some useful commands to examine the data:
 
